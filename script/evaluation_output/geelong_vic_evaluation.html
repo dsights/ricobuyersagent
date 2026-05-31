@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RicoBuyers - GEELONG VIC Suburb Spotlight</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .controls { margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .btn { padding: 12px 24px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: all 0.3s; font-weight: 600; }
+        .btn-primary { background: #2c5282; color: white; }
+        .btn-primary:hover { background: #1a365d; }
+        .btn-secondary { background: white; color: #2c5282; border: 2px solid #2c5282; }
+        .btn-secondary:hover { background: #edf2f7; }
+        .carousel-container { position: relative; width: 100%; max-width: 540px; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; }
+        .slide { display: none; aspect-ratio: 4/5; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; position: relative; }
+        .slide.active { display: flex; flex-direction: column; justify-content: space-between; }
+        .slide-1 { justify-content: center !important; align-items: center; text-align: center; }
+        .slide-1 h1 { font-size: 48px; font-weight: 800; margin-bottom: 10px; line-height: 1.1; }
+        .slide-1 .subtitle { font-size: 20px; margin-bottom: 40px; opacity: 0.95; }
+        .investment-badge { background: white; color: #667eea; padding: 16px 32px; border-radius: 50px; font-size: 32px; font-weight: 800; display: inline-block; margin: 20px 0; }
+        .slide-1 .brand { font-size: 18px; font-weight: 600; margin-top: 30px; }
+        .slide-2 { background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%); }
+        .slide-title { font-size: 32px; font-weight: 700; margin-bottom: 24px; border-bottom: 3px solid white; padding-bottom: 12px; }
+        .slide-content p { font-size: 18px; line-height: 1.6; margin-bottom: 16px; }
+        .slide-3 { background: linear-gradient(135deg, #38b2ac 0%, #2c7a7b 100%); }
+        .verdict-score { background: rgba(255,255,255,0.2); padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center; }
+        .verdict-score h2 { font-size: 48px; font-weight: 800; }
+        .slide-4, .slide-5, .slide-6 { background: linear-gradient(135deg, #ed8936 0%, #c05621 100%); }
+        .data-grid { display: grid; gap: 16px; margin-top: 20px; }
+        .data-item { background: rgba(255,255,255,0.15); padding: 16px; border-radius: 8px; border-left: 4px solid white; }
+        .data-label { font-size: 14px; opacity: 0.9; margin-bottom: 4px; }
+        .data-value { font-size: 28px; font-weight: 700; }
+        .slide-7 { background: linear-gradient(135deg, #48bb78 0%, #2f855a 100%); }
+        .slide-8 { background: linear-gradient(135deg, #4299e1 0%, #2b6cb0 100%); }
+        .slide-9 { background: linear-gradient(135deg, #9f7aea 0%, #6b46c1 100%); }
+        .timeline-content ul { list-style: none; margin-top: 20px; }
+        .timeline-content li { font-size: 16px; line-height: 1.5; margin-bottom: 12px; padding-left: 24px; position: relative; }
+        .timeline-content li:before { content: "•"; position: absolute; left: 0; font-size: 24px; }
+        .growth-estimate { background: rgba(255,255,255,0.2); padding: 16px; border-radius: 8px; margin-top: 20px; text-align: center; font-size: 24px; font-weight: 700; }
+        .slide-10 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); justify-content: center !important; align-items: center; text-align: center; }
+        .cta-content { width: 100%; }
+        .cta-link { background: white; color: #667eea; padding: 20px 32px; border-radius: 12px; font-size: 18px; font-weight: 700; display: inline-block; margin: 20px 0; text-decoration: none; transition: transform 0.3s; }
+        .cta-link:hover { transform: scale(1.05); }
+        .navigation { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #f7fafc; }
+        .nav-btn { padding: 10px 20px; background: #2c5282; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; }
+        .nav-btn:hover { background: #1a365d; }
+        .nav-btn:disabled { background: #cbd5e0; cursor: not-allowed; }
+        .slide-counter { font-size: 16px; font-weight: 600; color: #2c5282; }
+        .dots { display: flex; gap: 8px; justify-content: center; margin-top: 10px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #cbd5e0; cursor: pointer; transition: all 0.3s; }
+        .dot.active { background: #2c5282; width: 24px; border-radius: 5px; }
+        .instructions { margin-top: 20px; padding: 20px; background: white; border-radius: 8px; max-width: 540px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .instructions h3 { color: #2c5282; margin-bottom: 10px; }
+        .instructions p { color: #4a5568; line-height: 1.6; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button class="btn btn-primary" onclick="downloadAllSlides()">📥 Download All Slides (PNG)</button>
+        <button class="btn btn-secondary" onclick="downloadCurrentSlide()">📸 Download Current Slide</button>
+    </div>
+    <div class="carousel-container">
+        <div class="slide slide-1 active">
+            <div><h1>GEELONG, VIC</h1><p class="subtitle">Data-Driven Suburb Analysis</p><div class="investment-badge">7/10</div><p class="brand">RicoBuyers | Buyer Advocate Insights</p></div>
+        </div>
+        <div class="slide slide-2">
+            <div><h2 class="slide-title">Who We Are</h2><div class="slide-content"><p>At RicoBuyers, we operate solely for buyers—using data and education to cut through sales-driven noise.</p><p>Our role is to help buyers make informed property decisions that support long-term wealth creation, not agent or seller agendas.</p></div></div>
+        </div>
+        <div class="slide slide-3">
+            <div><h2 class="slide-title">The Verdict</h2><div class="slide-content"><p style="font-size: 20px; font-weight: 600;">Spotlight on GEELONG, VIC</p><div class="verdict-score"><h2>7/10</h2><p>Investment Appeal</p></div><p>A balanced suburb with strong investment appeal, supported by local infrastructure, steady employment, and positive demographic trends.</p></div></div>
+        </div>
+        <div class="slide slide-4">
+            <div><h2 class="slide-title">Current Market Position</h2><div class="data-grid"><div class="data-item"><div class="data-label">Median House Price</div><div class="data-value">$602,000</div></div><div class="data-item"><div class="data-label">12-Month High</div><div class="data-value">$714,000</div></div><div class="data-item"><div class="data-label">12-Month Low</div><div class="data-value">$489,000</div></div><div class="data-item"><div class="data-label">Estimated Land Value</div><div class="data-value">$266,000</div></div></div></div>
+        </div>
+        <div class="slide slide-5">
+            <div><h2 class="slide-title">Returns Analysis</h2><div class="data-grid"><div class="data-item"><div class="data-label">Gross Rental Yield</div><div class="data-value">2.6%</div></div><div class="data-item"><div class="data-label">Price to Rent Ratio</div><div class="data-value">38.4</div></div><div class="data-item"><div class="data-label">ROCE (Capital Growth)</div><div class="data-value">3.9% p.a.</div></div><div class="data-item"><div class="data-label">ROE (Leveraged Return)</div><div class="data-value">13.0% p.a.</div></div></div></div>
+        </div>
+        <div class="slide slide-6">
+            <div><h2 class="slide-title">Land Value Breakdown</h2><div class="data-grid"><div class="data-item"><div class="data-label">Minimum Lot Size</div><div class="data-value">700 sqm</div></div><div class="data-item"><div class="data-label">Avg Price per sqm (Land)</div><div class="data-value">$380/sqm</div></div><div class="data-item"><div class="data-label">Avg Price per sqm (House & Land)</div><div class="data-value">$860/sqm</div></div></div><p style="font-size: 14px; margin-top: 20px; line-height: 1.5; opacity: 0.95;"><strong>Why sqm matters:</strong> sqm-based pricing highlights land scarcity versus build value, allows apples-to-apples suburb comparison, and reflects a buyer-advocate lens rarely shown by selling agents.</p></div>
+        </div>
+        <div class="slide slide-7">
+            <div><h2 class="slide-title">Short-Term Outlook</h2><p style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">1–3 Years</p><div class="timeline-content"><ul><li>Interest rate environment providing market stability.</li><li>Supply constraints continue to put upward pressure on prices.</li><li>Market sentiment remains positive for well-located properties.</li><li>Local infrastructure projects are nearing completion.</li></ul><div class="growth-estimate">Est. Growth: 3–5% p.a.</div></div></div>
+        </div>
+        <div class="slide slide-8">
+            <div><h2 class="slide-title">Mid-Term Outlook</h2><p style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">3–7 Years</p><div class="timeline-content"><ul><li>Strong population growth trends expected to continue.</li><li>Vacancy rates are projected to remain low, favouring landlords.</li><li>Improved transport links enhancing access to employment hubs.</li><li>Favourable zoning for future development potential.</li></ul><div class="growth-estimate">Est. Growth: 6–8% p.a.</div></div></div>
+        </div>
+        <div class="slide slide-9">
+            <div><h2 class="slide-title">Long-Term Outlook</h2><p style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">7+ Years</p><div class="timeline-content"><ul><li>Chronic housing undersupply underpins long-term value.</li><li>Positive demographic shifts are driving sustained demand.</li><li>Increasing land scarcity supports capital growth.</li><li>Historical growth aligned with major capital city averages.</li></ul><div class="growth-estimate">Est. Growth: 6–9% p.a.</div></div></div>
+        </div>
+        <div class="slide slide-10">
+            <div class="cta-content"><h2 class="slide-title" style="border: none; padding: 0;">Ready to Assess This Suburb?</h2><p style="font-size: 20px; margin: 20px 0;">If you're assessing whether this suburb aligns with your strategy, book a confidential 30-minute buyer strategy call:</p><a href="https://calendly.com/ricobuyersagent/30min" class="cta-link" target="_blank">calendly.com/ricobuyersagent/30min</a><p style="font-size: 18px; font-weight: 600; margin-top: 30px;">RicoBuyers</p></div>
+        </div>
+        <div class="navigation">
+            <button class="nav-btn" onclick="previousSlide()" id="prevBtn">← Previous</button>
+            <div><div class="slide-counter"><span id="currentSlide">1</span> / 10</div><div class="dots" id="dotsContainer"></div></div>
+            <button class="nav-btn" onclick="nextSlide()" id="nextBtn">Next →</button>
+        </div>
+    </div>
+    <div class="instructions">
+        <h3>📋 How to Use This Carousel</h3>
+        <p><strong>Option 1:</strong> Click "Download All Slides" to get 10 PNG images ready for Instagram/Facebook</p>
+        <p><strong>Option 2:</strong> Navigate through slides and download individual ones</p>
+        <p><strong>Option 3:</strong> Take screenshots of each slide (press PrtScn on Windows, Cmd+Shift+4 on Mac)</p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const dotsContainer = document.getElementById('dotsContainer');
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+        function updateSlide() {
+            slides.forEach((slide, index) => { slide.classList.toggle('active', index === currentSlideIndex); });
+            document.querySelectorAll('.dot').forEach((dot, index) => { dot.classList.toggle('active', index === currentSlideIndex); });
+            document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+            document.getElementById('prevBtn').disabled = currentSlideIndex === 0;
+            document.getElementById('nextBtn').disabled = currentSlideIndex === totalSlides - 1;
+        }
+        function nextSlide() { if (currentSlideIndex < totalSlides - 1) { currentSlideIndex++; updateSlide(); } }
+        function previousSlide() { if (currentSlideIndex > 0) { currentSlideIndex--; updateSlide(); } }
+        function goToSlide(index) { currentSlideIndex = index; updateSlide(); }
+        async function downloadCurrentSlide() {
+            const activeSlide = document.querySelector('.slide.active');
+            const canvas = await html2canvas(activeSlide, { width: 1080, height: 1350, scale: 2, backgroundColor: null });
+            const link = document.createElement('a');
+            link.download = `RicoBuyers_GEELONG_Slide_${currentSlideIndex + 1}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        async function downloadAllSlides() {
+            alert('Downloading all slides... This may take a moment.');
+            for (let i = 0; i < totalSlides; i++) {
+                goToSlide(i);
+                await new Promise(resolve => setTimeout(resolve, 500));
+                const activeSlide = document.querySelector('.slide.-active');
+                const canvas = await html2canvas(activeSlide, { width: 1080, height: 1350, scale: 2, backgroundColor: null });
+                const link = document.createElement('a');
+                link.download = `RicoBuyers_GEELONG_Slide_${String(i + 1).padStart(2, '0')}.png`;
+                link.href = canvas.toDataURL();
+                link.click();
+                await new Promise(resolve => setTimeout(resolve, 300));
+            }
+            goToSlide(0);
+            alert('All slides downloaded!');
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') previousSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+        });
+        updateSlide();
+    </script>
+</body>
+</html>

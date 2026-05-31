@@ -1,0 +1,97 @@
+.calculator-container {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+#cashflow-form .form-group label {
+    font-weight: 600;
+    color: #333;
+}
+
+#cashflow-form .form-control {
+    border-radius: 5px;
+    border-color: #ddd;
+}
+
+#cashflow-form .form-control:focus {
+    border-color: #149dcc;
+    box-shadow: none;
+}
+
+.accordion .card {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 10px;
+}
+
+.accordion .card-header {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.accordion .btn-link {
+    color: #333;
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.accordion .btn-link:hover {
+    text-decoration: none;
+}
+
+.accordion .card-body {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #f1f1f1;
+    border-top: none;
+}
+
+#calculate-btn {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+}
+
+.summary-box {
+    background-color: #eaf6fc;
+    border: 2px solid #149dcc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.summary-box h3 {
+    color: #333;
+}
+
+#cashflow-status {
+    text-transform: uppercase;
+}
+
+#cashflow-amount.positive {
+    color: #28a745;
+}
+
+#cashflow-amount.negative {
+    color: #dc3545;
+}
+
+.breakdown-section h5 {
+    color: #149dcc;
+    border-bottom: 2px solid #149dcc;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.breakdown-section .list-group-item {
+    border: none;
+    padding: .5rem 0;
+    display: flex;
+    justify-content: space-between;
+}

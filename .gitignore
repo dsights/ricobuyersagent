@@ -1,0 +1,9 @@
+# Mobirise project file (not needed for deployment)
+project.mobirise
+
+# Email scripts with credentials
+email/msmtprc
+
+# OS files
+.DS_Store
+Thumbs.db

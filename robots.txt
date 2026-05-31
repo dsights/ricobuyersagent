@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /email/
+Disallow: /script/
+Disallow: /evaluation_output/
+Allow: /
+
+Sitemap: https://ricobuyersagent.au/sitemap.xml

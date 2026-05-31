@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.6.13, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/rba-logo-transparent-128x161.png" type="image/x-icon">
+  <meta name="description" content="Find your dream property with our interactive search tool. Filter real estate.com.au based on your preferences.">
+  <title>Find Your Property - RICO Buyers Agent</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/web/assets/gdpr-plugin/gdpr-styles.css">
+  <link rel="stylesheet" href="assets/chatbutton/floating-wpp.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+  <style>
+    /* Global layout adjustments */
+    body {
+        padding-top: 120px; /* Ensure space for fixed header */
+        padding-bottom: 60px; /* Ensure space for fixed footer, adjust as needed */
+    }
+    /* Main section padding to prevent content touching header/footer */
+    #property-search-section {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        min-height: calc(100vh - 180px); /* Adjust based on header/footer height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Styling for the search cards container */
+    #search-flow-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px; /* Adjust as needed */
+        min-height: 450px; /* Increased minimum height for better content visibility */
+        margin: 0 auto; /* Center the container */
+        padding: 20px; /* Internal padding for the flow container */
+    }
+
+    .search-card-wrapper {
+        position: absolute; /* Stack cards on top of each other */
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #fff; /* Ensure background */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 30px; /* Increased internal padding for cards */
+        display: flex; /* Use flexbox for centering content */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(100%); /* Start off-screen to the right */
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        overflow-y: auto; /* Allow scrolling if content overflows */
+    }
+
+    .search-card-wrapper.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0%); /* Slide into view */
+        z-index: 1; /* Bring active card to front */
+    }
+    /* Animation for previous card sliding out */
+    .search-card-wrapper.animate-out-left {
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    .search-card-wrapper.animate-out-right {
+        transform: translateX(100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .search-card-wrapper form {
+        width: 100%;
+        padding: 10px;
+    }
+    .search-card-wrapper .form-group {
+        margin-bottom: 15px;
+    }
+    .search-card-actions {
+        margin-top: 20px;
+    }
+    .search-card-actions button {
+        margin: 0 5px;
+    }
+    /* Specific styling for the Chirag/Genie Popup */
+    .genie-popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+    .genie-popup-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    .genie-popup-content {
+        background: linear-gradient(135deg, #f0e68c, #ffd700); /* Gold-like */
+        padding: 40px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        max-width: 90%;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease-in-out;
+        position: relative;
+    }
+    .genie-popup-overlay.show .genie-popup-content {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .genie-image {
+        width: 100px;
+        height: 100px;
+        background-color: #add8e6; /* Light blue for genie */
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        animation: geniePulse 1.5s infinite alternate;
+    }
+    @keyframes geniePulse {
+        from { transform: scale(1); }
+        to { transform: scale(1.1); }
+    }
+    .genie-popup-content h3 {
+        color: #8b4513; /* Brownish */
+        margin-bottom: 15px;
+    }
+    .genie-popup-content p {
+        color: #333;
+        margin-bottom: 25px;
+    }
+    .genie-popup-content .btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+  </style>
+</head>
+<body style="padding-top: 120px;">
+  <section class="menu menu3 agencym4_menu3 cid-tRX1jEAMxG" once="menu" id="menu3-1u">
+	<nav class="navbar navbar-dropdown beta-menu align-items-center navbar-fixed-top navbar-toggleable-sm">
+		<div class="menu-bottom order-0 order-lg-1">
+			<div class="menu-logo">
+				<div class="navbar-brand">
+					<span class="navbar-logo">
+						<a href="index.html">
+							<img src="assets/images/rba-logo-154x95.jpg" alt="RICO Buyers Agent" style="height: 3.8rem;">
+						</a>
+					</span>
+				</div>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent, #topLine" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<div class="hamburger">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav nav-dropdown js-float-line" data-app-modern-menu="true">
+                    <li class="nav-item">
+                        <a class="nav-link link mbr-black text-primary display-4" href="index.html"><strong>Home</strong></a>
+                    </li>
+                    <li class="nav-item">
+						<a class="nav-link link mbr-black text-primary display-4" href="calculators.html"><strong>Calculators</strong></a>
+					</li>
+                    <li class="nav-item">
+						<a class="nav-link link mbr-black text-primary display-4" href="find-property.html"><strong>Find your Property</strong></a>
+					</li>
+                    <li class="nav-item">
+						<a class="nav-link link mbr-black text-primary display-4" href="https://wa.me/61414711771"><span class="mobi-mbri mobi-mbri-phone mbr-iconfont mbr-iconfont-btn"></span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link link mbr-black text-primary display-4" href="mailto:contact@ricobuyersagent.au"><span class="mobi-mbri mobi-mbri-letter mbr-iconfont mbr-iconfont-btn"></span></a>
+					</li>
+                </ul>
+				<div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-primary display-4" href="https://calendly.com/ricobuyersagent/30min" target="_blank">
+						<span class="mbri-help mbr-iconfont mbr-iconfont-btn "></span>
+						FREE CONSULTATION
+					</a></div>
+			</div>
+		</div>
+	</nav>
+</section>
+
+<section class="mbr-section content1 cid-tUa4z4u8iH" id="content1-3a">
+    <div class="container">
+        <div class="media-container-row">
+            <div class="mbr-text col-12 col-md-12">
+                <h2 class="mbr-fonts-style block-title align-center display-2">
+                    <strong>Find Your Perfect Property</strong>
+                </h2>
+                <p class="mbr-fonts-style align-center display-7">
+                    Answer a few fun questions to find properties that match your dream.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section form1 cid-tUa4A8i2oE" id="property-search-section">
+    <div class="container">
+        <div id="search-flow-container">
+
+            <!-- Card 1: Property Type -->
+            <div class="search-card-wrapper active" id="card-property-type">
+                <h3 class="mbr-fonts-style display-5">What type of property are you looking for?</h3>
+                <p class="mbr-text mbr-fonts-style display-7">Select property type.</p>
+                <form id="form-property-type" class="mbr-form form-with-styler">
+                    <div class="form-group">
+                        <select name="propertyType" class="form-control display-7" id="property-type">
+                            <option value="">Any</option>
+                            <option value="house">House</option>
+                            <option value="apartment">Apartment / Unit / Flat</option>
+                            <option value="land">Land</option>
+                            <option value="townhouse">Townhouse</option>
+                            <option value="villa">Villa</option>
+                        </select>
+                    </div>
+                    <div class="search-card-actions">
+                        <button type="button" class="btn btn-primary next-card">Next</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Card 2: Location -->
+            <div class="search-card-wrapper" id="card-location">
+                <h3 class="mbr-fonts-style display-5">Where are you looking to buy?</h3>
+                <p class="mbr-text mbr-fonts-style display-7">Enter suburb or postcode.</p>
+                <form id="form-location" class="mbr-form form-with-styler">
+                    <div class="form-group">
+                        <label for="location" class="mbr-fonts-style display-7">Suburb or Postcode</label>
+                        <input type="text" name="location" class="form-control display-7" id="location">
+                    </div>
+                    <div class="search-card-actions">
+                        <button type="button" class="btn btn-secondary prev-card">Previous</button>
+                        <button type="button" class="btn btn-primary next-card">Next</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Card 3: Price Range -->
+            <div class="search-card-wrapper" id="card-price-range">
+                <h3 class="mbr-fonts-style display-5">What's your budget?</h3>
+                <p class="mbr-text mbr-fonts-style display-7">Set your price range.</p>
+                <form id="form-price-range" class="mbr-form form-with-styler">
+                    <div class="form-group">
+                        <label for="min-price" class="mbr-fonts-style display-7">Minimum Price ($)</label>
+                        <input type="number" name="minPrice" class="form-control display-7" id="min-price">
+                    </div>
+                    <div class="form-group">
+                        <label for="max-price" class="mbr-fonts-style display-7">Maximum Price ($)</label>
+                        <input type="number" name="maxPrice" class="form-control display-7" id="max-price">
+                    </div>
+                    <div class="search-card-actions">
+                        <button type="button" class="btn btn-secondary prev-card">Previous</button>
+                        <button type="button" class="btn btn-primary next-card">Next</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Card 4: Bedrooms -->
+            <div class="search-card-wrapper" id="card-bedrooms">
+                <h3 class="mbr-fonts-style display-5">How many bedrooms?</h3>
+                <p class="mbr-text mbr-fonts-style display-7">Specify number of bedrooms.</p>
+                <form id="form-bedrooms" class="mbr-form form-with-styler">
+                    <div class="form-group">
+                        <select name="bedrooms" class="form-control display-7" id="bedrooms">
+                            <option value="">Any</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                            <option value="3">3+</option>
+                            <option value="4">4+</option>
+                            <option value="5">5+</option>
+                        </select>
+                    </div>
+                    <div class="search-card-actions">
+                        <button type="button" class="btn btn-secondary prev-card">Previous</button>
+                        <button type="button" class="btn btn-primary next-card">Next</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Card 5: Bathrooms -->
+            <div class="search-card-wrapper" id="card-bathrooms">
+                <h3 class="mbr-fonts-style display-5">How many bathrooms?</h3>
+                <p class="mbr-text mbr-fonts-style display-7">Specify number of bathrooms.</p>
+                <form id="form-bathrooms" class="mbr-form form-with-styler">
+                    <div class="form-group">
+                        <select name="bathrooms" class="form-control display-7" id="bathrooms">
+                            <option value="">Any</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                            <option value="3">3+</option>
+                        </select>
+                    </div>
+                    <div class="search-card-actions">
+                        <button type="button" class="btn btn-secondary prev-card">Previous</button>
+                        <button type="button" class="btn btn-primary next-card">Next</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Card 6: Parking -->
+            <div class="search-card-wrapper" id="card-parking">
+                <h3 class="mbr-fonts-style display-5">Any parking requirements?</h3>
+                <p class="mbr-text mbr-fonts-style display-7">Specify parking options.</p>
+                <form id="form-parking" class="mbr-form form-with-styler">
+                    <div class="form-group">
+                        <select name="parking" class="form-control display-7" id="parking">
+                            <option value="">Any</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                        </select>
+                    </div>
+                    <div class="search-card-actions">
+                        <button type="button" class="btn btn-secondary prev-card">Previous</button>
+                        <button type="button" class="btn btn-primary next-card">Next</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Card 7: Land Size Min -->
+            <div class="search-card-wrapper" id="card-land-size-min">
+                <h3 class="mbr-fonts-style display-5">Minimum Land Size?</h3>
+                <p class="mbr-text mbr-fonts-style display-7">Enter minimum land size in sqm.</p>
+                <form id="form-land-size-min" class="mbr-form form-with-styler">
+                    <div class="form-group">
+                        <label for="min-land-size" class="mbr-fonts-style display-7">Minimum Land Size (sqm)</label>
+                        <input type="number" name="minLandSize" class="form-control display-7" id="min-land-size">
+                    </div>
+                    <div class="search-card-actions">
+                        <button type="button" class="btn btn-secondary prev-card">Previous</button>
+                        <button type="button" class="btn btn-primary next-card">Next</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Card 8: Final Search -->
+            <div class="search-card-wrapper" id="card-final-search">
+                <h3 class="mbr-fonts-style display-5">Ready to find your property?</h3>
+                <p class="mbr-text mbr-fonts-style display-7">Your property genie is ready to grant your wish!</p>
+                <div class="search-card-actions">
+                    <button type="button" class="btn btn-secondary prev-card">Previous</button>
+                    <button type="button" class="btn btn-primary" id="open-realestate-link">Go Let's Hunt!</button>
+                </div>
+            </div>
+
+        </div> <!-- /#search-flow-container -->
+    </div>
+</section>
+
+<!-- Chirag/Genie Popup HTML -->
+<div class="genie-popup-overlay" id="genie-popup-overlay">
+    <div class="genie-popup-content">
+        <div class="genie-image">✨</div> <!-- Replace with actual genie image/icon -->
+        <h3>Your Wish is My Command!</h3>
+        <p>I have conjured the perfect property search for you. Shall I grant your wish and open the results?</p>
+        <button class="btn" id="genie-search-button">Search Now!</button>
+    </div>
+</div>
+
+<section class="footer4 agencym4_footer4 cid-tRYL9Kr8k6" id="footer4-20">
+	<div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(51, 51, 51);"></div>
+	<div class="container">
+		<div class="media-container-row content mbr-white">
+			<div class="col-md-3 col-sm-12">
+				<div class="mb-3 img-logo">
+					<a href="index.html">
+						<img src="assets/images/rba-logo-154x95.jpg" alt="Mobirise">
+					</a>
+				</div>
+				<p class="mb-3 mbr-fonts-style foot-title display-7">
+					<a href="index.html" class="text-primary">RICO Buyers Agent</a></p>
+				<p class="mbr-text mbr-fonts-style display-7">
+					<a href="https://calendly.com/ricobuyersagent/30min" class="text-white text-primary">Get In Touch</a>
+				</p>
+			</div>
+			<div class="col-md-4 col-sm-12">
+				<p class="mb-4 foot-title mbr-fonts-style display-5">
+					Recent News & Articles</p>
+				<p class="mbr-text mbr-fonts-style display-7"><a href="Blog - Real Estate Market Outlook 2023.html" class="text-primary">Real Estate Market Outlook 2023?</a><br><a href="RBA Mood on Australian Economy.html" class="text-primary">RBA Mood on Australian Economy</a><br><a href="Reduce your home loan by five years using a single straightforward technique.html" class="text-primary">Trick to Save 5years of your Loan</a></p>
+			</div>
+			<div class="col-md-4 offset-md-1 col-sm-12">
+				<p class="mb-4 foot-title mbr-fonts-style display-5">
+					Contact Us
+				</p>
+				<div class="form-block">
+					<div data-form-type="formoid">
+						<form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="J+YPV5LCNoijXr7RPJ8a6WfNRDPyoSTawuHW5v2esSsULdocHRv4inPqyiUP8/MISJHmMmHUEGLYN5yX/BIiUT9qumWbzESnAqMXE8DvhSwuBp9IXKkIjcBpBlMMSteZ.EbuYl0LahCc+rLqUfFVGf4xMpcgL3kxuxi1MDmMxQUwpEwjpy7q0ZkzNLv9O23V9q1c6X4ySyxKq4XYlh3/25dpIKNIGxptUKrnntegZZwQNI4L01Q4UY0Hn+rMMeN9X">
+							<div class="form-row">
+								<div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thank You for your Enquiry, We will connect with you soon.
+								</div>
+								<div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12"></div>
+							</div>
+							<div class="dragArea form-row">
+								<div class="col-md-12  form-group" data-for="email">
+									<input type="text" name="email" placeholder="Email" data-form-field="Email" required="required" class="form-control input display-7" id="email-footer4-20">
+								</div>
+								<div class="col-md-12  form-group" data-for="message">
+									<textarea name="message" placeholder="Message" data-form-field="Message" class="form-control input display-7" id="message-footer4-20"></textarea>
+								</div>
+								<div class="col-md-12 align-center input-group-btn mt-2"><button type="submit" class="btn btn-bgr btn-white display-4">SEND MESSAGE</button></div>
+							</div>
+						<span class="gdpr-block">
+<label>
+<span class="textGDPR display-7" style="color: #a7a7a7"><input type="checkbox" name="gdpr" id="gdpr-footer4-20" required="">By continuing you agree to our <a style="color: #149dcc; text-decoration: underline;" href="terms.html">Terms of Service</a> and <a style="color: #149dcc; text-decoration: underline;" href="policy.html">Privacy Policy</a>.</span>
+</label>
+</span></form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-lower">
+			<div class="media-container-row">
+				<div class="col-sm-12">
+					<hr>
+				</div>
+			</div>
+			<div class="media-container-row mbr-white">
+				<div class="col-sm-12 copyright">
+					<p class="mbr-text mbr-fonts-style display-7">
+						© Copyright 2023 RICO Buyers Agent - All Rights Reserved
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/chatbutton/floating-wpp.js"></script>
+  <script src="assets/chatbutton/script.js"></script>
+  <script src="assets/dropdown/js/nav-dropdown.js"></script>
+  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/parallax/jarallax.min.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  <script src="assets/formoid/formoid.min.js"></script>
+<script>
+    const searchParams = {};
+    let currentCardIndex = 0;
+    const cards = document.querySelectorAll('.search-card-wrapper');
+
+    // Function to show/hide cards with animation
+    function showCard(index, direction = 'next') {
+        if (index < 0 || index >= cards.length) return;
+
+        const prevCard = cards[currentCardIndex];
+        const nextCard = cards[index];
+
+        // Animate previous card out
+        if (prevCard && currentCardIndex !== index) { // Ensure prevCard exists and it's not the same card
+            prevCard.classList.remove('active');
+            if (direction === 'next') {
+                prevCard.classList.add('animate-out-left');
+            } else {
+                prevCard.classList.add('animate-out-right');
+            }
+            // Remove animation classes after transition to allow reuse
+            prevCard.addEventListener('transitionend', function handler() {
+                prevCard.classList.remove('animate-out-left', 'animate-out-right');
+                prevCard.style.zIndex = ''; // Reset z-index
+                prevCard.removeEventListener('transitionend', handler); // Remove event listener
+            }, { once: true });
+        }
+
+        // Animate next card in
+        nextCard.classList.add('active');
+        nextCard.style.zIndex = '1'; // Bring to front during animation
+        if (direction === 'next') {
+             nextCard.style.transform = 'translateX(100%)'; // Start from right
+             setTimeout(() => { nextCard.style.transform = 'translateX(0%)'; }, 10); // Animate to center
+        } else {
+            nextCard.style.transform = 'translateX(-100%)'; // Start from left
+            setTimeout(() => { nextCard.style.transform = 'translateX(0%)'; }, 10); // Animate to center
+        }
+
+        currentCardIndex = index;
+    }
+
+    function collectInput(id, paramName) {
+        const inputElement = document.getElementById(id);
+        if (inputElement) {
+            searchParams[paramName] = inputElement.value;
+        }
+    }
+
+    function generateRealEstateUrl() {
+        let baseUrl = "https://www.realestate.com.au/buy/";
+        const pathSegments = [];
+        const queryParams = new URLSearchParams();
+
+        // 1. Bedrooms (appears first if present in the path)
+        if (searchParams.bedrooms && searchParams.bedrooms !== "" && searchParams.bedrooms !== "0") {
+            pathSegments.push(`with-${searchParams.bedrooms}-bedroom`);
+        } else if (searchParams.propertyType && searchParams.propertyType !== "") {
+            // If no specific bedroom count, but property type is selected, use it.
+            // The example correct URL doesn't show "property-house" when bedrooms are present.
+            // So, this is a fallback if only propertyType is selected.
+            pathSegments.push(`property-${searchParams.propertyType}`);
+        } else {
+            // If neither bedrooms nor propertyType, default to generic 'property'.
+            pathSegments.push('property');
+        }
+
+        // 2. Land Size (new - 'size-MINLANDSIZE')
+        if (searchParams.minLandSize && searchParams.minLandSize !== "" && searchParams.minLandSize !== "0") {
+            pathSegments.push(`size-${searchParams.minLandSize}`);
+        }
+
+        // 3. Price Range (placed after bedrooms and land size, before location in the path)
+        let priceSegment = '';
+        if (searchParams.minPrice && searchParams.minPrice !== "" && searchParams.maxPrice && searchParams.maxPrice !== "") {
+            priceSegment = `between-${searchParams.minPrice}-${searchParams.maxPrice}`;
+        } else if (searchParams.minPrice && searchParams.minPrice !== "") {
+            priceSegment = `over-${searchParams.minPrice}`;
+        } else if (searchParams.maxPrice && searchParams.maxPrice !== "") {
+            priceSegment = `under-${searchParams.maxPrice}`;
+        }
+        if (priceSegment) {
+            pathSegments.push(priceSegment);
+        }
+
+        // 4. Location (last in the path segments before /list-1)
+        if (searchParams.location && searchParams.location.trim() !== "") {
+            pathSegments.push(`in-${encodeURIComponent(searchParams.location.toLowerCase().replace(/\s/g, '-'))}`);
+        }
+        
+        // Construct the base path with segments
+        if (pathSegments.length > 0) {
+            baseUrl += pathSegments.join('-'); 
+        } else {
+            // Fallback if no specific filters are applied, but we still need a base for realestate.com.au
+            baseUrl += 'property';
+        }
+
+        // Add the required '/list-1' segment
+        baseUrl += '/list-1';
+
+        // 5. Bathrooms as query parameter
+        if (searchParams.bathrooms && searchParams.bathrooms !== "" && searchParams.bathrooms !== "0") {
+            queryParams.append('numBaths', searchParams.bathrooms);
+        }
+
+        // 6. Parking as query parameter
+        if (searchParams.parking && searchParams.parking !== "" && searchParams.parking !== "0") {
+            queryParams.append('numParkingSpaces', searchParams.parking);
+        }
+        
+        // Append query parameters if any
+        const queryString = queryParams.toString();
+        if (queryString) {
+            baseUrl += `?${queryString}`;
+        }
+
+        // Ensure no double slashes, unless part of http://
+        baseUrl = baseUrl.replace(/([^:]\/)\/+/g, "$1");
+        
+        return baseUrl;
+    }
+
+    // Chirag/Genie Popup functions
+    function showGeniePopup() {
+        const popupOverlay = document.getElementById('genie-popup-overlay');
+        popupOverlay.classList.add('show');
+    }
+
+    function hideGeniePopup() {
+        const popupOverlay = document.getElementById('genie-popup-overlay');
+        popupOverlay.classList.remove('show');
+    }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        showCard(0); // Show the first card initially
+
+        // Navigation for Next/Previous buttons
+        document.querySelectorAll('.next-card').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation(); 
+                
+                // Collect input from current card before moving
+                const currentCardWrapper = cards[currentCardIndex];
+                
+                const currentForm = currentCardWrapper.querySelector('form');
+                if (currentForm) {
+                    const formId = currentForm.id;
+                    if (formId === 'form-property-type') collectInput('property-type', 'propertyType');
+                    if (formId === 'form-location') collectInput('location', 'location');
+                    if (formId === 'form-price-range') {
+                        collectInput('min-price', 'minPrice');
+                        collectInput('max-price', 'maxPrice');
+                    }
+                    if (formId === 'form-bedrooms') collectInput('bedrooms', 'bedrooms');
+                    if (formId === 'form-bathrooms') collectInput('bathrooms', 'bathrooms');
+                    if (formId === 'form-parking') collectInput('parking', 'parking');
+                    if (formId === 'form-land-size-min') collectInput('min-land-size', 'minLandSize');
+                }
+
+                if (currentCardIndex < cards.length - 1) {
+                    showCard(currentCardIndex + 1, 'next');
+                } else {
+                    // If it's the final card, prepare URL and show genie popup
+                    showGeniePopup();
+                }
+            });
+        });
+
+        document.querySelectorAll('.prev-card').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation(); 
+
+                if (currentCardIndex > 0) {
+                    showCard(currentCardIndex - 1, 'prev');
+                }
+            });
+        });
+
+        // Event listener for the "Go Let's Hunt!" button in the final card
+        document.getElementById('open-realestate-link').addEventListener('click', () => {
+            // Collect input from current card before moving
+            const currentCardWrapper = cards[currentCardIndex];
+            const currentForm = currentCardWrapper.querySelector('form');
+            if (currentForm) {
+                const formId = currentForm.id;
+                if (formId === 'form-parking') collectInput('parking', 'parking');
+                if (formId === 'form-land-size-min') collectInput('min-land-size', 'minLandSize');
+            }
+            // No longer directly opens, but shows the popup.
+            showGeniePopup();
+        });
+
+        // Event listener for the "Search Now" button in the Genie popup
+        document.getElementById('genie-search-button').addEventListener('click', () => {
+            hideGeniePopup();
+            const url = generateRealEstateUrl();
+            if (url) {
+                window.open(url, '_blank');
+            } else {
+                alert("An error occurred generating the search URL. Please try again.");
+            }
+        });
+    });
+</script>
+</body>
+</html>

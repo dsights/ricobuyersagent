@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RICO Buyers Agent services — Full property search, negotiation-only, auction bidding, and international buyer programs. Transparent fees, buyer-only focus across all of Australia.">
+  <link rel="canonical" href="https://ricobuyersagent.au/services.html">
+  <link rel="shortcut icon" href="assets/images/rba-logo-transparent-128x161.png" type="image/x-icon">
+  <title>Our Services | RICO Buyers Agent — Full Search, Negotiation & Auction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <style>
+    .page-hero { background: var(--grad-primary); padding: calc(var(--nav-height) + var(--sp-20)) 0 var(--sp-20); }
+    .page-hero h1 { font-family:var(--font-display); font-size:clamp(2rem,5vw,3.5rem); font-weight:800; color:#fff; line-height:1.15; margin-bottom:var(--sp-4); }
+    .page-hero p { font-size:var(--text-lg); color:rgba(255,255,255,.8); max-width:640px; line-height:1.7; }
+    .breadcrumb { display:flex; align-items:center; gap:var(--sp-2); font-size:var(--text-sm); color:rgba(255,255,255,.6); margin-bottom:var(--sp-6); }
+    .breadcrumb a { color:rgba(255,255,255,.7); }
+    .breadcrumb span { color:rgba(255,255,255,.4); }
+
+    .service-package {
+      background:var(--c-white);
+      border-radius:var(--radius-xl);
+      overflow:hidden;
+      box-shadow:var(--shadow-card);
+      border:2px solid var(--c-border);
+      transition:all var(--t-base);
+      display:flex;
+      flex-direction:column;
+    }
+    .service-package:hover { transform:translateY(-8px); box-shadow:var(--shadow-hover); border-color:var(--c-primary); }
+    .service-package.featured { border-color:var(--c-teal); box-shadow:var(--shadow-lg); }
+    .service-package__header {
+      background:var(--grad-primary);
+      padding:var(--sp-8) var(--sp-8) var(--sp-6);
+      position:relative;
+      overflow:hidden;
+    }
+    .service-package.featured .service-package__header { background:var(--grad-teal); }
+    .service-package__popular {
+      position:absolute;
+      top:var(--sp-4);
+      right:var(--sp-4);
+      background:var(--c-gold);
+      color:white;
+      font-size:var(--text-xs);
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      padding:var(--sp-1) var(--sp-3);
+      border-radius:var(--radius-full);
+    }
+    .service-package__title { font-family:var(--font-display); font-size:var(--text-2xl); font-weight:800; color:#fff; margin-bottom:var(--sp-2); }
+    .service-package__ideal { font-size:var(--text-sm); color:rgba(255,255,255,.75); }
+    .service-package__body { padding:var(--sp-8); flex:1; display:flex; flex-direction:column; }
+    .service-package__features { margin-bottom:var(--sp-8); flex:1; }
+    .service-feature {
+      display:flex;
+      align-items:flex-start;
+      gap:var(--sp-3);
+      padding:var(--sp-3) 0;
+      border-bottom:1px solid var(--c-border);
+      font-size:var(--text-sm);
+      color:var(--c-text);
+    }
+    .service-feature:last-child { border-bottom:none; }
+    .service-feature svg { width:18px; height:18px; color:var(--c-teal); flex-shrink:0; margin-top:1px; }
+
+    .audience-section { padding:var(--sp-16) 0; border-bottom:1px solid var(--c-border); }
+    .audience-section:last-child { border-bottom:none; }
+    .audience-section__icon { width:72px; height:72px; background:var(--c-primary-xlight); border-radius:var(--radius-xl); display:flex; align-items:center; justify-content:center; margin-bottom:var(--sp-6); }
+    .audience-section__icon svg { width:32px; height:32px; color:var(--c-primary); }
+    .audience-section h3 { font-family:var(--font-display); font-size:var(--text-3xl); font-weight:800; color:var(--c-dark); margin-bottom:var(--sp-4); }
+    .audience-section p { font-size:var(--text-lg); color:var(--c-sub); line-height:1.7; margin-bottom:var(--sp-6); max-width:700px; }
+
+    .benefit-item { display:flex; gap:var(--sp-4); padding:var(--sp-4); background:var(--c-light); border-radius:var(--radius-lg); margin-bottom:var(--sp-3); }
+    .benefit-item svg { width:20px; height:20px; color:var(--c-teal); flex-shrink:0; margin-top:2px; }
+    .benefit-item strong { display:block; font-size:var(--text-sm); font-weight:700; color:var(--c-dark); margin-bottom:2px; }
+    .benefit-item span { font-size:var(--text-sm); color:var(--c-sub); }
+
+    .guarantee-card { background:var(--c-primary-xlight); border:2px solid var(--c-primary); border-radius:var(--radius-xl); padding:var(--sp-8); display:flex; gap:var(--sp-6); align-items:flex-start; }
+    .guarantee-icon { width:56px; height:56px; background:var(--c-primary); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .guarantee-icon svg { width:28px; height:28px; color:#fff; }
+    .guarantee-title { font-family:var(--font-display); font-size:var(--text-xl); font-weight:700; color:var(--c-primary); margin-bottom:var(--sp-2); }
+    .guarantee-desc { font-size:var(--text-base); color:var(--c-sub); line-height:1.7; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="nav nav--solid" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><img class="logo-dark" src="assets/images/rba-logo-154x95.jpg" alt="RICO Buyers Agent" height="48"></a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="services.html" class="nav__link active">Services</a><div class="nav__dropdown"><a href="services.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>All Services</a><a href="for-international-buyers.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20"/></svg>International Buyers</a><a href="process.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>How It Works</a></div></li>
+        <li><a href="suburb-insights.html" class="nav__link">Suburb Insights</a></li>
+        <li><a href="calculators.html" class="nav__link">Calculators</a></li>
+        <li><a href="blog/index.html" class="nav__link">Market Pulse</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary" target="_blank" rel="noopener">Book Free Consultation</a>
+        <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="navMobile">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="for-international-buyers.html">International Buyers</a><a href="suburb-insights.html">Suburb Insights</a><a href="calculators.html">Calculators</a><a href="blog/index.html">Market Pulse</a><a href="about.html">About</a>
+    <div class="nav__mobile-cta"><a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary btn-lg w-full flex-center" target="_blank" rel="noopener" style="text-decoration:none">Book Free Consultation</a></div>
+  </div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Services</span></div>
+        <h1 data-aos="fade-up">Services Designed for Buyers,<br>Not Sellers</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Whether you need full end-to-end buyer representation, expert negotiation, or professional auction bidding — RICO has a service package built for your situation.</p>
+      </div>
+    </section>
+
+    <!-- SERVICE PACKAGES -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="text-center mb-8">
+          <div class="section-label" data-aos="fade-up">Our Packages</div>
+          <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100">Choose Your <span>Level of Support</span></h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="200">All RICO packages include 100% buyer-only representation, transparent fees, and no kickbacks from selling agents or developers.</p>
+        </div>
+        <div class="grid-3" style="align-items:start;">
+          <!-- Full Service -->
+          <div class="service-package" data-aos="fade-up" data-aos-delay="0">
+            <div class="service-package__header">
+              <div class="service-package__title">Full Search Service</div>
+              <div class="service-package__ideal">Best for: Busy professionals, investors, interstate &amp; international buyers</div>
+            </div>
+            <div class="service-package__body">
+              <p style="font-size:var(--text-sm); color:var(--c-sub); line-height:1.7; margin-bottom:var(--sp-6);">The complete end-to-end buyer's agent service. We handle everything from your initial brief right through to keys in hand — so you can get on with your life.</p>
+              <div class="service-package__features">
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Free strategy session &amp; property brief</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Full off-market &amp; on-market property search</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>20-point due diligence on every property</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Building, pest &amp; strata inspection coordination</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Expert price negotiation</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Auction day representation (if required)</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-settlement inspection</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Property management coordination (optional)</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Video walkthroughs for remote buyers</div>
+              </div>
+              <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-navy w-full flex-center" target="_blank" rel="noopener" style="text-decoration:none">Book Free Consultation</a>
+            </div>
+          </div>
+
+          <!-- Negotiation Only -->
+          <div class="service-package featured" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-package__header">
+              <div class="service-package__popular">Most Requested</div>
+              <div class="service-package__title">Negotiation Only</div>
+              <div class="service-package__ideal">Best for: Buyers who found the property, need a professional negotiator</div>
+            </div>
+            <div class="service-package__body">
+              <p style="font-size:var(--text-sm); color:var(--c-sub); line-height:1.7; margin-bottom:var(--sp-6);">You've found the property. Now you need an expert to ensure you don't overpay. We step in to assess true market value and negotiate the best possible outcome.</p>
+              <div class="service-package__features">
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Independent property assessment</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Comparable sales analysis &amp; market valuation</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Due diligence checklist review</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Price negotiation &amp; terms coordination</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Contract review coordination (with solicitor)</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-negotiation support through to settlement</div>
+              </div>
+              <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary w-full flex-center" target="_blank" rel="noopener" style="text-decoration:none">Book Free Consultation</a>
+            </div>
+          </div>
+
+          <!-- Auction Bidding -->
+          <div class="service-package" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-package__header">
+              <div class="service-package__title">Auction Bidding</div>
+              <div class="service-package__ideal">Best for: Buyers attending auctions without professional experience</div>
+            </div>
+            <div class="service-package__body">
+              <p style="font-size:var(--text-sm); color:var(--c-sub); line-height:1.7; margin-bottom:var(--sp-6);">Auctions are high-pressure environments designed to extract maximum price. RICO removes the emotion and brings professional, strategic bidding on your behalf.</p>
+              <div class="service-package__features">
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-auction property assessment</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Maximum bid strategy consultation</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Comparable sales &amp; vendor reserve research</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Professional auction day representation</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-auction negotiation if property passes in</div>
+                <div class="service-feature"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Contract exchange coordination</div>
+              </div>
+              <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-navy w-full flex-center" target="_blank" rel="noopener" style="text-decoration:none">Book Free Consultation</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guarantee -->
+        <div style="margin-top:var(--sp-10);" data-aos="fade-up">
+          <div class="guarantee-card">
+            <div class="guarantee-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div>
+              <div class="guarantee-title">Our Transparency Guarantee</div>
+              <p class="guarantee-desc">RICO fees are fixed and disclosed upfront — no hidden commissions, no referral payments from selling agents, no kickbacks from developers or property marketers. Our only obligation is to you, the buyer. If you're ever uncertain about a recommendation, ask us for our reasoning in writing — we'll provide it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE HELP -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="text-center mb-8">
+          <div class="section-label" data-aos="fade-up">Who We Help</div>
+          <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100">Tailored to <span>Every Buyer Type</span></h2>
+        </div>
+
+        <div id="investors" class="audience-section" data-aos="fade-up">
+          <div class="audience-section__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h3>Property Investors</h3>
+          <p>Whether you're buying your first investment property or expanding a multi-property portfolio, RICO's data-driven approach identifies assets that perform — not just look good. We find properties that deliver both strong yield and capital growth potential.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--sp-4);">
+            <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Yield-optimised suburb selection</strong><span>30+ data sources to identify high-yield, high-growth suburbs before the market moves</span></div></div>
+            <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Portfolio strategy mapping</strong><span>We map each purchase to your overall portfolio goals — diversification, LVR management, equity growth</span></div></div>
+            <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Positive cash flow focus</strong><span>Where possible, we target properties that cover their own costs and contribute to your passive income</span></div></div>
+            <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Property management coordination</strong><span>We connect you with trusted property managers post-settlement so your investment is in safe hands</span></div></div>
+          </div>
+          <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary" style="margin-top:var(--sp-6);" target="_blank" rel="noopener">Investor Strategy Session</a>
+        </div>
+
+        <div id="first-home-buyers" class="audience-section" data-aos="fade-up">
+          <div class="audience-section__icon" style="background:rgba(57,132,122,.1);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--c-teal)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <h3>First Home Buyers</h3>
+          <p>Buying your first home is one of the most significant — and stressful — financial decisions you'll ever make. RICO takes the jargon, the anxiety, and the overwhelm out of the process. We're in your corner from day one.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--sp-4);">
+            <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><strong>First Home Owner Grant guidance</strong><span>We navigate FHOG eligibility, stamp duty concessions, and government schemes available in your state</span></div></div>
+            <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Plain-English education</strong><span>We explain every step — contracts, cooling-off periods, settlement, and what every clause actually means</span></div></div>
+            <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Emotion removed</strong><span>It's easy to fall in love with a property and overpay. We keep you grounded and protect you from impulsive decisions</span></div></div>
+            <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Full support network</strong><span>We connect you with trusted mortgage brokers, conveyancers, building inspectors, and property managers</span></div></div>
+          </div>
+          <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary" style="margin-top:var(--sp-6);" target="_blank" rel="noopener">First Home Buyer Session</a>
+        </div>
+
+        <div id="owner-occupiers" class="audience-section" data-aos="fade-up">
+          <div class="audience-section__icon" style="background:rgba(189,160,138,.15);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--c-gold)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <h3>Owner Occupiers</h3>
+          <p>Relocating, upsizing, downsizing, or moving to an area you don't know well? RICO's local knowledge and extensive network ensure you land in the right home, at the right price, in the right neighbourhood — without spending 12 months searching.</p>
+          <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary" style="margin-top:var(--sp-6);" target="_blank" rel="noopener">Owner Occupier Session</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner section">
+      <div class="container">
+        <div class="cta-banner__inner">
+          <div data-aos="fade-right">
+            <h2 class="cta-banner__heading">Not sure which service you need?</h2>
+            <p class="cta-banner__sub">Book a free 30-minute consultation and we'll recommend the right approach for your specific situation — no obligation.</p>
+          </div>
+          <div class="cta-banner__actions" data-aos="fade-left" data-aos-delay="200">
+            <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book Free Consultation</a>
+            <a href="process.html" class="btn btn-outline-white btn-lg">See How It Works</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo"><div class="container"><div style="padding:var(--sp-8) 0; border-top:1px solid rgba(255,255,255,.1); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--sp-4);"><img src="assets/images/rba-logo-transparent-128x161.png" alt="RICO" height="40"><p style="font-size:var(--text-xs); color:rgba(255,255,255,.4);">© 2025 RICO Buyers Agent. All Rights Reserved.</p><div style="display:flex; gap:var(--sp-5);"><a href="index.html" style="font-size:var(--text-sm); color:rgba(255,255,255,.6);">Home</a><a href="about.html" style="font-size:var(--text-sm); color:rgba(255,255,255,.6);">About</a><a href="privacy-policy.html" style="font-size:var(--text-sm); color:rgba(255,255,255,.6);">Privacy</a></div></div></div></footer>
+
+  <a href="https://wa.me/61414711771" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><span class="wa-bubble">Chat with us!</span><span class="wa-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
+  <div class="mobile-cta"><div class="mobile-cta__inner"><a href="tel:+61414711771" class="btn btn-secondary">Call Us</a><a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary" target="_blank" rel="noopener" style="text-decoration:none">Book Free Session</a></div></div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({duration:700,once:true,offset:60,easing:'ease-out-cubic'});
+    const nav=document.getElementById('nav'),burger=document.getElementById('navBurger'),mobile=document.getElementById('navMobile');
+    burger.addEventListener('click',()=>{const o=mobile.classList.toggle('open');burger.classList.toggle('open');burger.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';});
+    mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobile.classList.remove('open');burger.classList.remove('open');document.body.style.overflow='';}));
+  </script>
+</body>
+</html>

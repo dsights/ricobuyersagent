@@ -1,0 +1,176 @@
+Create a professional, interactive HTML carousel for RicoBuyers featuring a data-driven suburb analysis for [SUBURB NAME, STATE].
+REQUIREMENTS:
+Output Format:
+
+Single HTML artifact with embedded CSS and JavaScript
+10 slides in Instagram portrait format (1080x1350px aspect ratio)
+Built-in download functionality for PNG export
+Navigation with next/previous buttons, dots, and keyboard arrows
+
+Design Specifications:
+
+RicoBuyers brand colors: Primary #2c5282 (navy blue), gradients for visual appeal
+Modern, professional design with high contrast for readability
+Each slide uses distinct gradient backgrounds
+Consistent typography: headings 32-48px, body 16-20px, data values 28px+
+White text on colored backgrounds for maximum impact
+Clean spacing and visual hierarchy
+
+Slide Structure (10 slides total):
+SLIDE 1 - COVER:
+
+Large suburb name (48px, bold, centered)
+Subtitle: "Data-Driven Suburb Analysis"
+Investment score badge (white background, large number format: "X/10")
+Footer: "RicoBuyers | Buyer Advocate Insights"
+Background: Purple gradient (#667eea to #764ba2)
+
+SLIDE 2 - BRAND POSITIONING:
+
+Title: "Who We Are"
+Body text (use this verbatim or very close):
+"At RicoBuyers, we operate solely for buyers—using data and education to cut through sales-driven noise. Our role is to help buyers make informed property decisions that support long-term wealth creation, not agent or seller agendas."
+Background: Navy gradient (#2c5282 to #1a365d)
+
+SLIDE 3 - SUBURB VERDICT:
+
+Title: "The Verdict"
+Large centered score box with "X/10 Investment Appeal"
+Description following this format:
+"A [lifestyle/family/investor/balanced] suburb with [selective/strong/moderate] investment appeal, supported by [list 3-5 key factors like infrastructure, employment, demographics, zoning]."
+Background: Teal gradient (#38b2ac to #2c7a7b)
+
+SLIDE 4 - PRICE SNAPSHOT:
+
+Title: "Current Market Position"
+Data items in card format with labels and large values:
+
+Median House Price: $XXX,XXX
+12-Month High: $XXX,XXX
+12-Month Low: $XXX,XXX
+Market Size: $XX million (estimate)
+Estimated Land Value: $XXX,XXX
+
+
+Background: Orange gradient (#ed8936 to #c05621)
+
+SLIDE 5 - INVESTOR METRICS:
+
+Title: "Returns Analysis"
+Data items:
+
+Gross Rental Yield: X.X%
+Price to Rent Ratio: XX
+ROCE (Capital Growth): X.X% p.a.
+ROE (Leveraged Return): XX.X% p.a.
+Price to Land Ratio: X.XX
+
+
+Background: Orange gradient (same as slide 4)
+
+SLIDE 6 - LAND VALUE BREAKDOWN:
+
+Title: "Land Value Breakdown"
+Data items:
+
+Minimum Lot Size: XXX sqm
+Avg Price per sqm (Land Only): $XXX/sqm
+Avg Price per sqm (House & Land): $XXX/sqm
+
+
+Bottom explanation (use verbatim):
+"Why sqm matters: sqm-based pricing highlights land scarcity versus build value, allows apples-to-apples suburb comparison, and reflects a buyer-advocate lens rarely shown by selling agents."
+Background: Orange gradient (same as slide 4)
+
+SLIDE 7 - SHORT-TERM OUTLOOK (1-3 YEARS):
+
+Title: "Short-Term Outlook"
+Subtitle: "1–3 Years"
+Bullet points (4-5 items) covering:
+
+Interest rate environment
+Supply constraints
+Market sentiment
+Infrastructure projects
+
+
+Growth estimate box at bottom: "Est. Growth: X–X% p.a."
+Background: Green gradient (#48bb78 to #2f855a)
+
+SLIDE 8 - MID-TERM OUTLOOK (3-7 YEARS):
+
+Title: "Mid-Term Outlook"
+Subtitle: "3–7 Years"
+Bullet points (4-5 items) covering:
+
+Population growth trends
+Vacancy rates
+Transport/employment access
+Zoning factors
+Demographic shifts
+
+
+Growth estimate box: "Est. Growth: X–X% p.a."
+Background: Blue gradient (#4299e1 to #2b6cb0)
+
+SLIDE 9 - LONG-TERM OUTLOOK (7+ YEARS):
+
+Title: "Long-Term Outlook"
+Subtitle: "7+ Years"
+Bullet points (4-5 items) covering:
+
+Housing undersupply dynamics
+Demographic trends
+Land scarcity
+Historical growth averages for the region
+
+
+Growth estimate box: "Est. Growth: X–X% p.a."
+Background: Purple gradient (#9f7aea to #6b46c1)
+
+SLIDE 10 - CALL TO ACTION:
+
+Title: "Ready to Assess This Suburb?"
+Body text:
+"If you're assessing whether this suburb aligns with your strategy, book a confidential 30-minute buyer strategy call:"
+Large clickable link button: "calendly.com/ricobuyersagent/30min"
+Footer: "RicoBuyers"
+Background: Purple gradient (#667eea to #764ba2, same as slide 1)
+
+Technical Features:
+
+Navigation controls: Previous/Next buttons, slide counter (1/10 format), dot indicators
+Keyboard navigation (arrow keys)
+Two download buttons:
+
+"Download All Slides (PNG)" - exports all 10 slides as separate PNG files
+"Download Current Slide" - exports only the visible slide
+
+
+Uses html2canvas library for PNG export
+Responsive design that maintains 4:5 aspect ratio
+Smooth transitions between slides
+
+Data Guidelines:
+
+Use realistic, suburb-appropriate Australian property data
+All financial figures in AUD with $ symbol
+Clearly mark estimates where appropriate
+Investment scores should be 1-10 (realistic range: 5-8 for most suburbs)
+Growth estimates should be conservative and defensible
+Tailor data based on suburb characteristics:
+
+Metropolitan vs regional
+Proximity to CBD
+Infrastructure and amenities
+Historical performance of similar suburbs
+
+
+
+Tone & Content Rules:
+
+Educational, confident, buyer-advocate perspective
+No hype, no emojis, no sales language
+Australian terminology only (e.g., "median house price" not "average home value")
+Professional and data-driven throughout
+Maintain credibility with realistic projections

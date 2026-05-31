@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meet the RICO Buyers Agent team — Australia's dedicated buyer advocates. Founded on the belief that every buyer deserves expert representation. Learn our story, values, and credentials.">
+  <meta property="og:title" content="About RICO Buyers Agent | Our Story & Team">
+  <meta property="og:description" content="Australia's dedicated buyer advocates working exclusively for property buyers. Learn about our story, values, credentials, and why thousands of buyers trust RICO.">
+  <link rel="canonical" href="https://ricobuyersagent.au/about.html">
+  <link rel="shortcut icon" href="assets/images/rba-logo-transparent-128x161.png" type="image/x-icon">
+  <title>About RICO Buyers Agent | Our Story, Values & Team</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <style>
+    .page-hero { background: var(--grad-primary); padding: calc(var(--nav-height) + var(--sp-20)) 0 var(--sp-20); }
+    .page-hero h1 { font-family: var(--font-display); font-size: clamp(2rem,5vw,3.5rem); font-weight:800; color:#fff; line-height:1.15; margin-bottom:var(--sp-4); }
+    .page-hero p { font-size:var(--text-lg); color:rgba(255,255,255,.8); max-width:600px; line-height:1.7; }
+    .breadcrumb { display:flex; align-items:center; gap:var(--sp-2); font-size:var(--text-sm); color:rgba(255,255,255,.6); margin-bottom:var(--sp-6); }
+    .breadcrumb a { color:rgba(255,255,255,.7); }
+    .breadcrumb a:hover { color:#fff; }
+    .breadcrumb span { color:rgba(255,255,255,.4); }
+
+    .value-card { background:var(--c-white); border-radius:var(--radius-xl); padding:var(--sp-8); box-shadow:var(--shadow-card); border:1px solid var(--c-border); border-top:4px solid var(--c-teal); }
+    .value-icon { width:56px; height:56px; background:var(--c-primary-xlight); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; margin-bottom:var(--sp-5); }
+    .value-icon svg { width:26px; height:26px; color:var(--c-primary); }
+    .value-title { font-family:var(--font-display); font-size:var(--text-lg); font-weight:700; color:var(--c-dark); margin-bottom:var(--sp-3); }
+    .value-desc { font-size:var(--text-sm); color:var(--c-sub); line-height:1.7; }
+
+    .team-card { background:var(--c-white); border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-card); border:1px solid var(--c-border); transition:all var(--t-base); text-align:center; }
+    .team-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-hover); }
+    .team-avatar { width:120px; height:120px; border-radius:50%; background:var(--grad-primary); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:var(--text-4xl); font-weight:800; color:#fff; margin:var(--sp-8) auto var(--sp-5); }
+    .team-name { font-family:var(--font-display); font-size:var(--text-xl); font-weight:700; color:var(--c-dark); }
+    .team-role { font-size:var(--text-sm); color:var(--c-teal); font-weight:600; text-transform:uppercase; letter-spacing:.06em; margin:var(--sp-2) 0 var(--sp-4); }
+    .team-bio { font-size:var(--text-sm); color:var(--c-sub); line-height:1.7; padding:0 var(--sp-6) var(--sp-8); }
+    .team-social { display:flex; justify-content:center; gap:var(--sp-3); padding-bottom:var(--sp-6); }
+    .team-social a { width:34px; height:34px; border-radius:50%; background:var(--c-muted); display:flex; align-items:center; justify-content:center; color:var(--c-sub); transition:all var(--t-fast); }
+    .team-social a:hover { background:var(--c-primary); color:#fff; }
+    .team-social svg { width:15px; height:15px; }
+
+    .credential-row { display:flex; align-items:center; gap:var(--sp-4); padding:var(--sp-4) 0; border-bottom:1px solid var(--c-border); }
+    .credential-row:last-child { border-bottom:none; }
+    .credential-icon { width:40px; height:40px; background:var(--c-primary-xlight); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .credential-icon svg { width:20px; height:20px; color:var(--c-primary); }
+    .credential-text { font-size:var(--text-sm); font-weight:600; color:var(--c-text); }
+    .credential-sub { font-size:var(--text-xs); color:var(--c-caption); margin-top:2px; }
+
+    .timeline-item { display:grid; grid-template-columns:80px 1fr; gap:var(--sp-6); margin-bottom:var(--sp-8); }
+    .timeline-year { font-family:var(--font-display); font-size:var(--text-2xl); font-weight:800; color:var(--c-primary); padding-top:var(--sp-2); }
+    .timeline-content { border-left:2px solid var(--c-border); padding-left:var(--sp-6); position:relative; }
+    .timeline-content::before { content:''; position:absolute; left:-5px; top:10px; width:8px; height:8px; background:var(--c-teal); border-radius:50%; }
+    .timeline-title { font-family:var(--font-display); font-size:var(--text-lg); font-weight:700; color:var(--c-dark); margin-bottom:var(--sp-2); }
+    .timeline-desc { font-size:var(--text-sm); color:var(--c-sub); line-height:1.7; }
+
+    .why-row { display:flex; align-items:flex-start; gap:var(--sp-4); margin-bottom:var(--sp-6); }
+    .why-num { font-family:var(--font-display); font-size:var(--text-3xl); font-weight:800; color:var(--c-primary); line-height:1; min-width:48px; }
+    .why-title { font-family:var(--font-display); font-size:var(--text-base); font-weight:700; color:var(--c-dark); margin-bottom:var(--sp-2); }
+    .why-desc { font-size:var(--text-sm); color:var(--c-sub); line-height:1.7; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- NAV (shared) -->
+  <nav class="nav nav--solid" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="RICO Buyers Agent — Home">
+        <img class="logo-dark" src="assets/images/rba-logo-154x95.jpg" alt="RICO Buyers Agent" height="48">
+      </a>
+      <ul class="nav__links" role="list">
+        <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+        <li class="nav__item">
+          <a href="services.html" class="nav__link">Services</a>
+          <div class="nav__dropdown">
+            <a href="services.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>All Services</a>
+            <a href="for-international-buyers.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>International Buyers</a>
+            <a href="process.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>How It Works</a>
+          </div>
+        </li>
+        <li class="nav__item"><a href="suburb-insights.html" class="nav__link">Suburb Insights</a></li>
+        <li class="nav__item"><a href="calculators.html" class="nav__link">Calculators</a></li>
+        <li class="nav__item"><a href="blog/index.html" class="nav__link">Market Pulse</a></li>
+        <li class="nav__item"><a href="about.html" class="nav__link active">About</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary" target="_blank" rel="noopener">Book Free Consultation</a>
+        <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="navMobile">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="for-international-buyers.html">International Buyers</a>
+    <a href="suburb-insights.html">Suburb Insights</a><a href="calculators.html">Calculators</a><a href="blog/index.html">Market Pulse</a>
+    <a href="about.html">About</a>
+    <div class="nav__mobile-cta"><a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary btn-lg w-full flex-center" target="_blank" rel="noopener" style="text-decoration:none">Book Free Consultation</a></div>
+  </div>
+
+  <main id="main">
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>About</span></div>
+        <h1 data-aos="fade-up">Who Is RICO Buyers Agent?</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Born from a frustration. Built for buyers. We exist because the property industry was designed for sellers — and we decided to change that.</p>
+      </div>
+    </section>
+
+    <!-- OUR STORY -->
+    <section class="section bg-white">
+      <div class="container">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-16); align-items:center;" class="grid-resp">
+          <div data-aos="fade-right">
+            <div class="section-label">Our Story</div>
+            <h2 class="section-heading">We Levelled the Playing Field for Buyers</h2>
+            <p class="section-sub mb-6" style="max-width:100%;">For decades, the Australian property market has been set up to favour vendors. Selling agents — skilled, well-resourced, and highly motivated — represent the seller's interests exclusively. The buyer walks into negotiations uninformed, emotionally invested, and often overpaying.</p>
+            <p style="font-size:var(--text-base); color:var(--c-sub); line-height:1.75; margin-bottom:var(--sp-5);">RICO Buyers Agent was founded with one belief: buyers deserve the same level of expert representation that sellers have always enjoyed. We built our agency from the ground up to be the antidote to misinformation, overpricing, and the emotional impulse buying that costs Australian buyers millions every year.</p>
+            <p style="font-size:var(--text-base); color:var(--c-sub); line-height:1.75;">Today, RICO operates across all of Australia with a data-driven, buyer-only model that has secured over 200 properties and saved our clients millions in purchase price reductions and avoided mistakes.</p>
+          </div>
+          <div data-aos="fade-left" data-aos-delay="200">
+            <div style="background:var(--grad-primary); border-radius:var(--radius-xl); padding:var(--sp-10); color:#fff; position:relative; overflow:hidden;">
+              <div style="position:absolute; top:-20px; right:-20px; width:200px; height:200px; background:rgba(255,255,255,.05); border-radius:50%;"></div>
+              <div style="position:absolute; bottom:-30px; left:-30px; width:150px; height:150px; background:rgba(255,255,255,.04); border-radius:50%;"></div>
+              <div style="position:relative; z-index:1;">
+                <div style="font-family:var(--font-display); font-size:var(--text-sm); font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:rgba(255,255,255,.6); margin-bottom:var(--sp-8);">By the Numbers</div>
+                <div style="display:flex; flex-direction:column; gap:var(--sp-6);">
+                  <div style="display:flex; gap:var(--sp-6); align-items:center;">
+                    <div style="font-family:var(--font-display); font-size:var(--text-5xl); font-weight:900; line-height:1; color:#fff;">200+</div>
+                    <div style="font-size:var(--text-sm); color:rgba(255,255,255,.75); line-height:1.5;">Properties successfully secured across Australia</div>
+                  </div>
+                  <div style="height:1px; background:rgba(255,255,255,.15);"></div>
+                  <div style="display:flex; gap:var(--sp-6); align-items:center;">
+                    <div style="font-family:var(--font-display); font-size:var(--text-5xl); font-weight:900; line-height:1; color:var(--c-teal-light);">$4.2M+</div>
+                    <div style="font-size:var(--text-sm); color:rgba(255,255,255,.75); line-height:1.5;">Saved for clients through expert negotiation</div>
+                  </div>
+                  <div style="height:1px; background:rgba(255,255,255,.15);"></div>
+                  <div style="display:flex; gap:var(--sp-6); align-items:center;">
+                    <div style="font-family:var(--font-display); font-size:var(--text-5xl); font-weight:900; line-height:1; color:var(--c-gold-light);">4.9★</div>
+                    <div style="font-size:var(--text-sm); color:rgba(255,255,255,.75); line-height:1.5;">Average client satisfaction rating</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="text-center mb-8">
+          <div class="section-label" data-aos="fade-up">What We Stand For</div>
+          <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100">Our Core Values</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="200">These aren't just words on a website. They're the principles that guide every property decision we make for our clients.</p>
+        </div>
+        <div class="grid-4" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+          <div class="value-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h3 class="value-title">Buyer-Only Focus</h3>
+            <p class="value-desc">We never act as a selling agent. Zero conflicts of interest, ever. Our legal and ethical obligation is exclusively to you, the buyer — full stop.</p>
+          </div>
+          <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <h3 class="value-title">Data Over Emotion</h3>
+            <p class="value-desc">Property decisions should be driven by analysis, not feeling. We provide the facts, comparable data, and expert perspective to cut through the noise.</p>
+          </div>
+          <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+            <h3 class="value-title">Education First</h3>
+            <p class="value-desc">An informed buyer makes better decisions. We educate our clients at every stage — not to sell them something, but to empower their decision-making.</p>
+          </div>
+          <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <h3 class="value-title">Long-Term Wealth</h3>
+            <p class="value-desc">We don't just secure a property — we help you build wealth. Every recommendation considers long-term growth, rental yield, and portfolio strategy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY / TIMELINE -->
+    <section class="section bg-white">
+      <div class="container">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-16); align-items:start;" class="grid-resp">
+          <div data-aos="fade-right">
+            <div class="section-label">Our Journey</div>
+            <h2 class="section-heading">A Track Record Built on Trust</h2>
+            <p class="section-sub mb-8" style="max-width:100%;">From our first client to our 200th property secured — here are the milestones that define who RICO is today.</p>
+            <div class="timeline-item">
+              <div class="timeline-year">2015</div>
+              <div class="timeline-content">
+                <div class="timeline-title">RICO Buyers Agent Founded</div>
+                <div class="timeline-desc">Founded with a single mission: to be the buyer's advocate Australia had been missing. First client secured below vendor asking price.</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2017</div>
+              <div class="timeline-content">
+                <div class="timeline-title">Expanded to National Coverage</div>
+                <div class="timeline-desc">Extended operations from Sydney and Melbourne to coverage across all major Australian capital cities and key regional markets.</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2019</div>
+              <div class="timeline-content">
+                <div class="timeline-title">100th Property Milestone</div>
+                <div class="timeline-desc">Celebrated securing our 100th property for clients. Launched our data-driven suburb analysis platform used by all RICO advisors.</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2021</div>
+              <div class="timeline-content">
+                <div class="timeline-title">International Buyer Program</div>
+                <div class="timeline-desc">Launched our remote buyer program for expat Australians and international investors — enabling fully digital end-to-end purchases.</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2025</div>
+              <div class="timeline-content">
+                <div class="timeline-title">200+ Properties & $4.2M Saved</div>
+                <div class="timeline-desc">Passed the 200-property milestone. $4.2M+ saved for clients through below-market negotiations. 4.9-star average satisfaction.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Credentials -->
+          <div data-aos="fade-left" data-aos-delay="200">
+            <div class="section-label">Credentials & Licences</div>
+            <h2 class="section-heading" style="font-size:clamp(1.5rem,3vw,2.25rem);">Qualified, Licensed, and Accountable</h2>
+            <p style="font-size:var(--text-base); color:var(--c-sub); line-height:1.75; margin-bottom:var(--sp-8);">Our credentials aren't just certificates on a wall. They represent our commitment to professional standards, ethical practice, and continuing education in the property market.</p>
+            <div style="background:var(--c-light); border-radius:var(--radius-xl); padding:var(--sp-6); border:1px solid var(--c-border);">
+              <div class="credential-row">
+                <div class="credential-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <div><div class="credential-text">Licensed Real Estate Agent</div><div class="credential-sub">Licenced in NSW, VIC, QLD and applicable states</div></div>
+              </div>
+              <div class="credential-row">
+                <div class="credential-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div><div class="credential-text">REBAA Member</div><div class="credential-sub">Real Estate Buyers Agents Association of Australia</div></div>
+              </div>
+              <div class="credential-row">
+                <div class="credential-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div><div class="credential-text">15+ Years Combined Experience</div><div class="credential-sub">Across residential, investment, and commercial property</div></div>
+              </div>
+              <div class="credential-row">
+                <div class="credential-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                <div><div class="credential-text">Continuing Professional Development</div><div class="credential-sub">Annual CPD requirements maintained</div></div>
+              </div>
+              <div class="credential-row">
+                <div class="credential-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div><div class="credential-text">Professional Indemnity Insurance</div><div class="credential-sub">Fully insured for all buyer's agent services</div></div>
+              </div>
+              <div class="credential-row">
+                <div class="credential-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+                <div><div class="credential-text">FIRB Registered Agent</div><div class="credential-sub">Foreign Investment Review Board registered for international buyers</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="text-center mb-8">
+          <div class="section-label" data-aos="fade-up">The Team</div>
+          <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100">Your Property <span>Advocates</span></h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="200">Our team of licensed buyer's advocates brings decades of combined experience in every corner of the Australian property market.</p>
+        </div>
+        <div class="grid-3" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+          <div class="team-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="team-avatar">RM</div>
+            <div class="team-name">Rico M.</div>
+            <div class="team-role">Founder & Principal Buyer Advocate</div>
+            <p class="team-bio">15+ years in Australian property markets. Specialist in off-market sourcing, auction strategy, and investor portfolio building. Previously worked as a selling agent — which is exactly why he switched sides.</p>
+            <div class="team-social">
+              <a href="https://www.linkedin.com/company/ricobuyersagent" aria-label="LinkedIn" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            </div>
+          </div>
+          <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-avatar" style="background:var(--grad-teal);">SA</div>
+            <div class="team-name">Sarah A.</div>
+            <div class="team-role">Senior Buyer Advocate — NSW & VIC</div>
+            <p class="team-bio">12 years experience specialising in first home buyers and family homes across Sydney, Melbourne, and Canberra. Known for her detail-oriented due diligence and calm negotiation style.</p>
+            <div class="team-social">
+              <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            </div>
+          </div>
+          <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-avatar" style="background:linear-gradient(135deg,#7a5c3e,#bda08a);">JK</div>
+            <div class="team-name">James K.</div>
+            <div class="team-role">Research Analyst & Data Strategist</div>
+            <p class="team-bio">Former property economist with expertise in suburb-level data analysis, growth modelling, and investment yield metrics. Powers RICO's data-driven suburb intelligence platform.</p>
+            <div class="team-social">
+              <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY RICO -->
+    <section class="section bg-white">
+      <div class="container-sm">
+        <div class="text-center mb-8">
+          <div class="section-label" data-aos="fade-up">The RICO Difference</div>
+          <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100">5 Reasons Buyers Choose <span>RICO</span></h2>
+        </div>
+        <div data-aos="fade-up">
+          <div class="why-row">
+            <div class="why-num">01</div>
+            <div>
+              <div class="why-title">We only work for buyers — full stop</div>
+              <p class="why-desc">Unlike many agencies that offer both selling and buying services, RICO operates exclusively as a buyers agency. There is no scenario in which we represent a vendor. This means every recommendation, every inspection, and every negotiation is 100% in your interest.</p>
+            </div>
+          </div>
+          <div class="why-row">
+            <div class="why-num">02</div>
+            <div>
+              <div class="why-title">Off-market access most buyers will never see</div>
+              <p class="why-desc">Our network of 500+ selling agents across Australia means RICO clients get first access to properties before they hit the open market. Approximately 70% of what we secure for clients never appears on any public listing platform.</p>
+            </div>
+          </div>
+          <div class="why-row">
+            <div class="why-num">03</div>
+            <div>
+              <div class="why-title">Data that drives results, not gut feeling</div>
+              <p class="why-desc">Every RICO recommendation is backed by 30+ data points — growth trends, rental yield history, infrastructure timelines, demographic shifts, and comparable sales. We buy on the numbers, not the aesthetics.</p>
+            </div>
+          </div>
+          <div class="why-row">
+            <div class="why-num">04</div>
+            <div>
+              <div class="why-title">Negotiation that consistently beats the market</div>
+              <p class="why-desc">Our advocates are trained negotiators who know every tactic selling agents use to inflate price. On average, RICO clients pay meaningfully below the vendor's initial asking price — and below comparable sales in the same area.</p>
+            </div>
+          </div>
+          <div class="why-row">
+            <div class="why-num">05</div>
+            <div>
+              <div class="why-title">We work globally — no country required</div>
+              <p class="why-desc">Whether you're in Sydney or Singapore, Melbourne or Miami — RICO's remote buyer program means you can purchase Australian property with full peace of mind without being physically present. Video inspections, digital contracts, and real-time reporting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner section">
+      <div class="container">
+        <div class="cta-banner__inner">
+          <div data-aos="fade-right">
+            <h2 class="cta-banner__heading">Ready to Work With Us?</h2>
+            <p class="cta-banner__sub">Book a free 30-minute strategy session and discover how RICO can help you buy smarter, faster, and with total confidence.</p>
+          </div>
+          <div class="cta-banner__actions" data-aos="fade-left" data-aos-delay="200">
+            <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book Free Strategy Session</a>
+            <a href="services.html" class="btn btn-outline-white btn-lg">View Our Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (abbreviated - normally included via JS or SSI) -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div style="padding:var(--sp-8) 0; border-top:1px solid rgba(255,255,255,.1); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--sp-4);">
+        <img src="assets/images/rba-logo-transparent-128x161.png" alt="RICO Buyers Agent" height="40">
+        <p style="font-size:var(--text-xs); color:rgba(255,255,255,.4);">© 2025 RICO Buyers Agent. All Rights Reserved.</p>
+        <div style="display:flex; gap:var(--sp-5);">
+          <a href="index.html" style="font-size:var(--text-sm); color:rgba(255,255,255,.6);">Home</a>
+          <a href="services.html" style="font-size:var(--text-sm); color:rgba(255,255,255,.6);">Services</a>
+          <a href="privacy-policy.html" style="font-size:var(--text-sm); color:rgba(255,255,255,.6);">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/61414711771" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <span class="wa-bubble">Chat with us!</span>
+    <span class="wa-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+  </a>
+  <div class="mobile-cta"><div class="mobile-cta__inner"><a href="tel:+61414711771" class="btn btn-secondary">Call Us</a><a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary" target="_blank" rel="noopener" style="text-decoration:none">Book Free Session</a></div></div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration:700, once:true, offset:60, easing:'ease-out-cubic' });
+    const nav=document.getElementById('nav'), burger=document.getElementById('navBurger'), mobile=document.getElementById('navMobile');
+    burger.addEventListener('click',()=>{const o=mobile.classList.toggle('open');burger.classList.toggle('open');burger.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';});
+    mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobile.classList.remove('open');burger.classList.remove('open');document.body.style.overflow='';}));
+    const respGrids=document.querySelectorAll('.grid-resp');function handleResp(){respGrids.forEach(g=>{g.style.gridTemplateColumns=window.innerWidth<=768?'1fr':'';});}handleResp();window.addEventListener('resize',handleResp);
+  </script>
+</body>
+</html>

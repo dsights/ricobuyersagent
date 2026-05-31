@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RICO Buyers Agent Suburb Insights — data-driven analysis of Australian suburbs. Investment scores, median prices, rental yields, growth projections, and infrastructure pipelines for 15,000+ suburbs.">
+  <link rel="canonical" href="https://ricobuyersagent.au/suburb-insights.html">
+  <link rel="shortcut icon" href="assets/images/rba-logo-transparent-128x161.png" type="image/x-icon">
+  <title>Suburb Insights | Data-Driven Australian Property Analysis | RICO Buyers Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <style>
+    .page-hero { background:var(--c-primary-dark); padding:calc(var(--nav-height) + var(--sp-16)) 0 var(--sp-16); position:relative; overflow:hidden; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:url('assets/images/mbr-1920x1107.jpg') center/cover; opacity:.12; }
+    .page-hero h1 { font-family:var(--font-display); font-size:clamp(2rem,5vw,3.5rem); font-weight:800; color:#fff; line-height:1.15; margin-bottom:var(--sp-4); position:relative; z-index:1; }
+    .page-hero p { font-size:var(--text-lg); color:rgba(255,255,255,.8); max-width:600px; line-height:1.7; position:relative; z-index:1; }
+
+    /* Search */
+    .search-hero { max-width:640px; margin:var(--sp-8) auto 0; position:relative; z-index:1; }
+    .search-hero input { width:100%; padding:var(--sp-5) var(--sp-16) var(--sp-5) var(--sp-6); border-radius:var(--radius-full); border:none; font-size:var(--text-lg); font-family:var(--font-body); box-shadow:var(--shadow-xl); color:var(--c-text); }
+    .search-hero input:focus { outline:none; box-shadow:0 0 0 4px rgba(57,132,122,.4), var(--shadow-xl); }
+    .search-hero button { position:absolute; right:var(--sp-2); top:50%; transform:translateY(-50%); padding:var(--sp-3) var(--sp-6); background:var(--c-teal); color:#fff; border-radius:var(--radius-full); font-family:var(--font-display); font-size:var(--text-sm); font-weight:700; border:none; cursor:pointer; transition:all var(--t-fast); }
+    .search-hero button:hover { background:var(--c-teal-dark); }
+
+    /* Score badge */
+    .score-badge { width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:var(--text-xl); font-weight:900; color:#fff; flex-shrink:0; }
+    .score-high { background:var(--c-teal); }
+    .score-med { background:var(--c-primary); }
+    .score-low { background:var(--c-gold); }
+
+    /* Suburb card */
+    .suburb-card { background:var(--c-white); border-radius:var(--radius-xl); padding:var(--sp-6); box-shadow:var(--shadow-card); border:1px solid var(--c-border); transition:all var(--t-base); display:flex; flex-direction:column; }
+    .suburb-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-hover); border-color:var(--c-primary); }
+    .suburb-card__header { display:flex; align-items:center; gap:var(--sp-4); margin-bottom:var(--sp-5); }
+    .suburb-card__name { font-family:var(--font-display); font-size:var(--text-xl); font-weight:800; color:var(--c-dark); }
+    .suburb-card__state { font-size:var(--text-xs); color:var(--c-caption); text-transform:uppercase; letter-spacing:.08em; }
+    .suburb-metrics { display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-3); margin-bottom:var(--sp-5); }
+    .suburb-metric { background:var(--c-light); border-radius:var(--radius-md); padding:var(--sp-3); }
+    .suburb-metric__val { font-family:var(--font-display); font-size:var(--text-lg); font-weight:800; color:var(--c-primary); }
+    .suburb-metric__label { font-size:var(--text-xs); color:var(--c-caption); text-transform:uppercase; letter-spacing:.06em; margin-top:2px; }
+    .suburb-card__verdict { font-size:var(--text-sm); color:var(--c-sub); line-height:1.7; margin-bottom:var(--sp-5); flex:1; }
+    .suburb-tags { display:flex; gap:var(--sp-2); flex-wrap:wrap; margin-bottom:var(--sp-5); }
+    .suburb-tag { font-size:var(--text-xs); padding:var(--sp-1) var(--sp-3); background:var(--c-primary-xlight); color:var(--c-primary); border-radius:var(--radius-full); font-weight:600; }
+
+    /* Metrics explainer */
+    .explainer-card { background:var(--c-white); border-radius:var(--radius-xl); padding:var(--sp-6); border:1px solid var(--c-border); box-shadow:var(--shadow-card); }
+    .explainer-icon { width:48px; height:48px; background:var(--c-primary-xlight); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; margin-bottom:var(--sp-4); }
+    .explainer-icon svg { width:24px; height:24px; color:var(--c-primary); }
+    .explainer-title { font-family:var(--font-display); font-size:var(--text-base); font-weight:700; color:var(--c-dark); margin-bottom:var(--sp-2); }
+    .explainer-desc { font-size:var(--text-sm); color:var(--c-sub); line-height:1.7; }
+
+    /* CTA card */
+    .custom-report-card { background:var(--grad-primary); border-radius:var(--radius-xl); padding:var(--sp-10); text-align:center; color:#fff; }
+    .custom-report-card h3 { font-family:var(--font-display); font-size:var(--text-3xl); font-weight:800; margin-bottom:var(--sp-4); }
+    .custom-report-card p { font-size:var(--text-lg); color:rgba(255,255,255,.8); max-width:480px; margin:0 auto var(--sp-8); line-height:1.7; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav class="nav nav--transparent" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="RICO Buyers Agent">
+        <img class="logo-light" src="assets/images/rba-logo-transparent-128x161.png" alt="RICO Buyers Agent" height="52">
+        <img class="logo-dark" src="assets/images/rba-logo-154x95.jpg" alt="RICO Buyers Agent" height="52">
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="suburb-insights.html" class="nav__link active">Suburb Insights</a></li>
+        <li><a href="calculators.html" class="nav__link">Calculators</a></li>
+        <li><a href="blog/index.html" class="nav__link">Market Pulse</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary" target="_blank" rel="noopener">Free Consultation</a>
+        <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="navMobile">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="for-international-buyers.html">International Buyers</a><a href="suburb-insights.html">Suburb Insights</a><a href="calculators.html">Calculators</a><a href="blog/index.html">Market Pulse</a><a href="about.html">About</a>
+    <div class="nav__mobile-cta"><a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary btn-lg w-full flex-center" target="_blank" rel="noopener" style="text-decoration:none">Book Free Consultation</a></div>
+  </div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <div class="section-label" style="color:var(--c-teal-light); position:relative; z-index:1;" data-aos="fade-up">Suburb Intelligence</div>
+        <h1 data-aos="fade-up" data-aos-delay="100">We Do the Suburb Research.<br><span style="color:var(--c-teal-light);">You Make the Decision.</span></h1>
+        <p data-aos="fade-up" data-aos-delay="200">Data-driven analysis across 15,000+ Australian suburbs — investment scores, median prices, rental yields, infrastructure pipelines, and 5-year growth projections. Updated weekly.</p>
+        <div class="search-hero" data-aos="fade-up" data-aos-delay="300">
+          <input type="text" id="suburbSearch" placeholder="Search a suburb, postcode, or region..." aria-label="Search suburb">
+          <button onclick="searchSuburb()">Search</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="trust-bar">
+      <div class="container">
+        <div class="trust-bar__inner">
+          <div class="trust-stat" data-aos="fade-up"><div class="trust-stat__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></div><div><div class="trust-stat__num">15,000+</div><div class="trust-stat__label">Suburbs Tracked</div></div></div>
+          <div class="trust-stat" data-aos="fade-up" data-aos-delay="100"><div class="trust-stat__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="trust-stat__num">30+</div><div class="trust-stat__label">Data Points per Suburb</div></div></div>
+          <div class="trust-stat" data-aos="fade-up" data-aos-delay="200"><div class="trust-stat__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/></svg></div><div><div class="trust-stat__num">Weekly</div><div class="trust-stat__label">Data Updated</div></div></div>
+          <div class="trust-stat" data-aos="fade-up" data-aos-delay="300"><div class="trust-stat__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="trust-stat__num">100%</div><div class="trust-stat__label">Buyer-Focused Analysis</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED SUBURBS -->
+    <section class="section bg-light">
+      <div class="container">
+        <div class="text-center mb-8">
+          <div class="section-label" data-aos="fade-up">Featured Analysis</div>
+          <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100">Currently Tracked <span>Suburbs</span></h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="200">RICO's team continuously analyses emerging and established suburbs across Australia. Here are some of our current assessments.</p>
+        </div>
+        <div class="grid-3" id="suburbGrid"></div>
+        <div class="custom-report-card" style="margin-top:var(--sp-10);" data-aos="fade-up">
+          <h3>Want a Custom Suburb Report?</h3>
+          <p>Tell us your target suburb and we'll prepare a detailed data brief — median prices, yield analysis, growth projections, and an investment verdict. Completely free with your consultation.</p>
+          <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Request a Custom Suburb Report
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE ANALYSE -->
+    <section class="section bg-white">
+      <div class="container">
+        <div class="text-center mb-8">
+          <div class="section-label" data-aos="fade-up">Our Methodology</div>
+          <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100">What We Analyse in <span>Every Suburb</span></h2>
+        </div>
+        <div class="grid-3" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+          <div class="explainer-card" data-aos="fade-up" data-aos-delay="0"><div class="explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="explainer-title">Price Growth Trajectory</div><p class="explainer-desc">5-year and 10-year median price growth, current market momentum, and short/mid/long-term growth projections based on comparable suburb data.</p></div>
+          <div class="explainer-card" data-aos="fade-up" data-aos-delay="100"><div class="explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="explainer-title">Rental Yield Analysis</div><p class="explainer-desc">Gross and net rental yields, price-to-rent ratios, historical rental growth, and vacancy rate analysis to assess income performance.</p></div>
+          <div class="explainer-card" data-aos="fade-up" data-aos-delay="200"><div class="explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div class="explainer-title">Land Value Ratio</div><p class="explainer-desc">Land-to-asset value ratio, price per square metre analysis, and minimum lot sizes — key metrics the selling agent never volunteers.</p></div>
+          <div class="explainer-card" data-aos="fade-up" data-aos-delay="300"><div class="explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="explainer-title">Infrastructure Pipeline</div><p class="explainer-desc">Planned infrastructure: transport links, schools, hospitals, commercial precincts, and government capital expenditure — a critical leading indicator.</p></div>
+          <div class="explainer-card" data-aos="fade-up" data-aos-delay="400"><div class="explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="explainer-title">Demographic Trends</div><p class="explainer-desc">Population growth projections, demographic shifts (age, income, household composition), and migration patterns that drive housing demand.</p></div>
+          <div class="explainer-card" data-aos="fade-up" data-aos-delay="500"><div class="explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20"/></svg></div><div class="explainer-title">Supply Constraints</div><p class="explainer-desc">Zoning limitations, development approvals, land availability, and new supply pipeline — understanding scarcity is key to understanding long-term price pressure.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner section">
+      <div class="container">
+        <div class="cta-banner__inner">
+          <div data-aos="fade-right">
+            <h2 class="cta-banner__heading">Ready to Find Your Suburb?</h2>
+            <p class="cta-banner__sub">Book a free strategy session and RICO will produce a custom suburb analysis brief for your target area — completely complimentary.</p>
+          </div>
+          <div class="cta-banner__actions" data-aos="fade-left" data-aos-delay="200">
+            <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book Free Consultation</a>
+            <a href="calculators.html" class="btn btn-outline-white btn-lg">Run the Numbers</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo"><div class="container"><div style="padding:var(--sp-8) 0; border-top:1px solid rgba(255,255,255,.1); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--sp-4);"><img src="assets/images/rba-logo-transparent-128x161.png" alt="RICO" height="40"><p style="font-size:var(--text-xs); color:rgba(255,255,255,.4);">© 2025 RICO Buyers Agent. All Rights Reserved.</p><div style="display:flex; gap:var(--sp-5);"><a href="index.html" style="font-size:var(--text-sm); color:rgba(255,255,255,.6);">Home</a><a href="about.html" style="font-size:var(--text-sm); color:rgba(255,255,255,.6);">About</a><a href="privacy-policy.html" style="font-size:var(--text-sm); color:rgba(255,255,255,.6);">Privacy</a></div></div></div></footer>
+
+  <a href="https://wa.me/61414711771" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><span class="wa-bubble">Chat with RICO!</span><span class="wa-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
+  <div class="mobile-cta"><div class="mobile-cta__inner"><a href="tel:+61414711771" class="btn btn-secondary">Call Us</a><a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary" target="_blank" rel="noopener" style="text-decoration:none">Book Free Session</a></div></div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({duration:700,once:true,offset:60,easing:'ease-out-cubic'});
+    const nav=document.getElementById('nav'),burger=document.getElementById('navBurger'),mobile=document.getElementById('navMobile');
+    window.addEventListener('scroll',()=>{if(window.scrollY>80){nav.classList.add('nav--solid');nav.classList.remove('nav--transparent');}else{nav.classList.remove('nav--solid');nav.classList.add('nav--transparent');}},{passive:true});
+    burger.addEventListener('click',()=>{const o=mobile.classList.toggle('open');burger.classList.toggle('open');burger.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';});
+    mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobile.classList.remove('open');burger.classList.remove('open');document.body.style.overflow='';}));
+
+    const suburbs = [
+      { name:'Geelong', state:'VIC', score:7, scoreClass:'score-med', medianPrice:'$740,000', yield:'4.2%', growth5yr:'+42%', tags:['Infrastructure Growth','Lifestyle','Renters Market'], verdict:'A major regional city with strong infrastructure investment and population growth driving above-average capital appreciation. Affordable relative to Melbourne with solid rental demand.', url:'script/evaluation_output/geelong_vic_evaluation.html' },
+      { name:'Girraween', state:'NSW', score:8, scoreClass:'score-high', medianPrice:'$1,350,000', yield:'3.1%', growth5yr:'+38%', tags:['Western Sydney','Low Vacancy','Family Suburb'], verdict:'A tightly held western Sydney suburb with excellent school zones, strong owner-occupier demand, and consistent price appreciation supported by infrastructure investment.', url:'script/evaluation_output/girraween_nsw_evaluation.html' },
+      { name:'Ipswich', state:'QLD', score:7, scoreClass:'score-med', medianPrice:'$520,000', yield:'4.8%', growth5yr:'+65%', tags:['Affordable','High Yield','Population Growth'], verdict:'One of Queensland\'s fastest-growing corridors. Affordable entry point, strong rental yields, and major infrastructure investment make this a compelling investor market.', url:'#' },
+      { name:'Ballarat', state:'VIC', score:6, scoreClass:'score-med', medianPrice:'$490,000', yield:'4.5%', growth5yr:'+48%', tags:['Regional Growth','Lifestyle','Infrastructure'], verdict:'Victoria\'s third-largest city benefiting from Melbourne overspill, university population, and significant healthcare/education employment base. Strong fundamentals for long-term investors.', url:'#' },
+      { name:'Logan', state:'QLD', score:7, scoreClass:'score-med', medianPrice:'$580,000', yield:'5.2%', growth5yr:'+78%', tags:['High Yield','Growth Corridor','Affordable'], verdict:'Logan Corridor offers some of Queensland\'s best gross yields combined with strong capital growth. Infrastructure investment and population growth support the long-term thesis.', url:'#' },
+      { name:'Parramatta', state:'NSW', score:8, scoreClass:'score-high', medianPrice:'$890,000', yield:'3.8%', growth5yr:'+35%', tags:['CBD Alternative','Employment Hub','Infrastructure'], verdict:'Sydney\'s second CBD with enormous infrastructure investment underway. Strong employment base, transport links, and ongoing urban renewal make this a premium investment location.', url:'#' },
+    ];
+
+    const grid = document.getElementById('suburbGrid');
+    suburbs.forEach((s,i)=>{
+      const card = document.createElement('div');
+      card.className = 'suburb-card';
+      card.setAttribute('data-aos','fade-up');
+      card.setAttribute('data-aos-delay',(i%3)*100);
+      const tags = s.tags.map(t=>`<span class="suburb-tag">${t}</span>`).join('');
+      card.innerHTML = `
+        <div class="suburb-card__header">
+          <div class="score-badge ${s.scoreClass}">${s.score}</div>
+          <div>
+            <div class="suburb-card__name">${s.name}</div>
+            <div class="suburb-card__state">${s.state} · Investment Score: ${s.score}/10</div>
+          </div>
+        </div>
+        <div class="suburb-metrics">
+          <div class="suburb-metric"><div class="suburb-metric__val">${s.medianPrice}</div><div class="suburb-metric__label">Median Price</div></div>
+          <div class="suburb-metric"><div class="suburb-metric__val">${s.yield}</div><div class="suburb-metric__label">Gross Yield</div></div>
+          <div class="suburb-metric"><div class="suburb-metric__val">${s.growth5yr}</div><div class="suburb-metric__label">5yr Growth</div></div>
+          <div class="suburb-metric"><div class="suburb-metric__val" style="color:var(--c-teal);">Buyer</div><div class="suburb-metric__label">Market Type</div></div>
+        </div>
+        <p class="suburb-card__verdict">${s.verdict}</p>
+        <div class="suburb-tags">${tags}</div>
+        ${s.url!=='#' ? `<a href="${s.url}" class="btn btn-secondary" style="text-align:center;">View Full Analysis</a>` : `<a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-secondary" target="_blank" rel="noopener" style="text-decoration:none; text-align:center;">Request This Report</a>`}
+      `;
+      grid.appendChild(card);
+    });
+
+    AOS.refresh();
+
+    function searchSuburb(){
+      const q=document.getElementById('suburbSearch').value.trim();
+      if(!q) return;
+      window.location.href=`https://calendly.com/ricobuyersagent/30min?suburb=${encodeURIComponent(q)}`;
+    }
+    document.getElementById('suburbSearch').addEventListener('keydown', e => { if(e.key==='Enter') searchSuburb(); });
+  </script>
+</body>
+</html>
