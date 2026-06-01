@@ -129,7 +129,7 @@
     const newBuildNet=[18000,19200,20400,21600,22800,24000,25200,26400,27600,28800];
     // Established grandfathered: lower depreciation, full neg gearing, 7% capital growth
     const estGrandfathered=[14500,16000,18000,20000,22500,25000,28000,31500,35000,39000];
-    new Chart(document.getElementById('newVsOldChart'),{type:'line',data:{labels:yrsArr,datasets:[{label:'New Build — Annual After-Tax Benefit',data:newBuildNet,borderColor:'#39847a',backgroundColor:'rgba(57,132,122,.1)',fill:true,tension:.4,borderWidth:3},{label:'Established (Grandfathered) — Annual After-Tax Gain',data:estGrandfathered,borderColor:'#2c5282',backgroundColor:'rgba(44,82,130,.08)',fill:true,tension:.4,borderWidth:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{family:'Inter',size:12}}}},scales:{y:{ticks:{callback:v=>'$'+Math.round(v/1000)+'K',font:{family:'Inter',size:11}}}}}});
+    new Chart(document.getElementById('newVsOldChart'),{type:'line',data:{labels:yrsArr,datasets:[{label:'New Build — Annual After-Tax Benefit',data:newBuildNet,borderColor:'#39847a',backgroundColor:'rgba(57,132,122,.1)',fill:true,tension:.4,borderWidth:3},{label:'Established (Grandfathered) — Annual After-Tax Gain',data:estGrandfathered,borderColor:'#bda08a',backgroundColor:'rgba(189,160,138,.08)',fill:true,tension:.4,borderWidth:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{family:'Inter',size:12}}}},scales:{y:{ticks:{callback:v=>'$'+Math.round(v/1000)+'K',font:{family:'Inter',size:11}}}}}});
   </script>
 </body>
 </html>

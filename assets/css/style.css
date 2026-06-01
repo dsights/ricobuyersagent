@@ -1,6 +1,6 @@
 /* ================================================================
    RICO BUYERS AGENT — GLOBAL DESIGN SYSTEM
-   Primary: #2c5282 (navy) | Accent: #39847a (teal) | Gold: #bda08a
+   Primary: #bda08a (coffee) | Accent: #39847a (teal) | Gold: #bda08a
    ================================================================ */
 
 /* ── GOOGLE FONTS ── */
@@ -9,10 +9,12 @@
 /* ── DESIGN TOKENS ── */
 :root {
   /* Brand Colours */
-  --c-primary:       #2c5282;
-  --c-primary-dark:  #1a365d;
-  --c-primary-light: #4a7fc1;
-  --c-primary-xlight:#ebf4ff;
+  --c-primary:       #bda08a;
+  --c-primary-dark:  #a68b77;
+  --c-primary-light: #d4bfad;
+  --c-primary-xlight:#f9f5f2;
+  --c-navy:          #bda08a;
+  --c-navy-dark:     #a68b77;
   --c-teal:          #39847a;
   --c-teal-dark:     #2c6b62;
   --c-teal-light:    #4db6a8;
@@ -30,9 +32,9 @@
   --c-caption: #718096;
 
   /* Gradients */
-  --grad-primary: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #4a7fc1 100%);
+  --grad-primary: linear-gradient(135deg, #a68b77 0%, #bda08a 50%, #d4bfad 100%);
   --grad-teal:    linear-gradient(135deg, #2c6b62 0%, #39847a 100%);
-  --grad-hero:    linear-gradient(135deg, rgba(26,54,93,0.88) 0%, rgba(44,82,130,0.75) 100%);
+  --grad-hero:    linear-gradient(135deg, rgba(166,139,119,0.92) 0%, rgba(189,160,138,0.75) 100%);
   --grad-gold:    linear-gradient(135deg, #bda08a 0%, #d4bfad 100%);
   --grad-light:   linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
 
@@ -76,11 +78,11 @@
 
   /* Shadows */
   --shadow-sm:  0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
-  --shadow-md:  0 4px 16px rgba(44,82,130,.12);
-  --shadow-lg:  0 12px 40px rgba(26,54,93,.16);
-  --shadow-xl:  0 24px 60px rgba(26,54,93,.22);
-  --shadow-card:0 2px 8px rgba(0,0,0,.06), 0 8px 24px rgba(44,82,130,.10);
-  --shadow-hover: 0 8px 32px rgba(44,82,130,.22);
+  --shadow-md:  0 4px 16px rgba(0,0,0,.10);
+  --shadow-lg:  0 12px 40px rgba(0,0,0,.12);
+  --shadow-xl:  0 24px 60px rgba(0,0,0,.18);
+  --shadow-card:0 2px 8px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
+  --shadow-hover: 0 8px 32px rgba(0,0,0,.12);
 
   /* Transitions */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
@@ -249,11 +251,11 @@ input, textarea, select { font-family: inherit; }
 .btn-navy {
   background: var(--c-primary);
   color: var(--c-white);
-  box-shadow: 0 4px 20px rgba(44,82,130,.3);
+  box-shadow: 0 4px 20px rgba(189,160,138,.3);
 }
 .btn-navy:hover {
   background: var(--c-primary-dark);
-  box-shadow: 0 8px 28px rgba(44,82,130,.45);
+  box-shadow: 0 8px 28px rgba(189,160,138,.45);
   transform: translateY(-2px);
 }
 
@@ -283,7 +285,7 @@ input, textarea, select { font-family: inherit; }
   border-radius: var(--radius-full);
 }
 .badge-teal { background: rgba(57,132,122,.12); color: var(--c-teal); }
-.badge-navy { background: rgba(44,82,130,.12); color: var(--c-primary); }
+.badge-navy { background: rgba(189,160,138,.12); color: var(--c-primary); }
 .badge-gold { background: rgba(189,160,138,.2); color: #7a5c3e; }
 .badge-white { background: rgba(255,255,255,.2); color: var(--c-white); }
 
@@ -1349,7 +1351,7 @@ details[open] .faq-icon svg { color: var(--c-white); transform: rotate(45deg); }
 .form-control:focus {
   outline: none;
   border-color: var(--c-primary);
-  box-shadow: 0 0 0 3px rgba(44,82,130,.12);
+  box-shadow: 0 0 0 3px rgba(189,160,138,.12);
 }
 .form-control::placeholder { color: var(--c-caption); }
 select.form-control { cursor: pointer; }

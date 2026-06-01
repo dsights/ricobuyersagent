@@ -45,7 +45,7 @@
     .calc-input-row input,
     .calc-input-row select { width:100%; padding:var(--sp-3) var(--sp-4); border:1.5px solid var(--c-border); border-radius:var(--radius-md); font-family:var(--font-body); font-size:var(--text-base); color:var(--c-text); background:var(--c-white); transition:border-color var(--t-fast),box-shadow var(--t-fast); }
     .calc-input-row input:focus,
-    .calc-input-row select:focus { outline:none; border-color:var(--c-primary); box-shadow:0 0 0 3px rgba(44,82,130,.12); }
+    .calc-input-row select:focus { outline:none; border-color:var(--c-primary); box-shadow:0 0 0 3px rgba(189,160,138,.12); }
     .calc-input-row .hint { font-size:var(--text-xs); color:var(--c-caption); margin-top:var(--sp-2); }
     .calc-input-row .prefix { position:relative; }
     .calc-input-row .prefix::before { content:attr(data-prefix); position:absolute; left:var(--sp-4); top:50%; transform:translateY(-50%); font-weight:600; color:var(--c-caption); pointer-events:none; z-index:1; }
@@ -385,7 +385,7 @@
         </div>
 
         <!-- Bottom CTA -->
-        <div style="margin-top:var(--sp-10); background:var(--c-primary-xlight); border-radius:var(--radius-xl); padding:var(--sp-8); border:1px solid rgba(44,82,130,.15); text-align:center;" data-aos="fade-up">
+        <div style="margin-top:var(--sp-10); background:var(--c-primary-xlight); border-radius:var(--radius-xl); padding:var(--sp-8); border:1px solid rgba(189,160,138,.15); text-align:center;" data-aos="fade-up">
           <h3 style="font-family:var(--font-display); font-size:var(--text-2xl); font-weight:800; color:var(--c-primary); margin-bottom:var(--sp-3);">Not sure what to do with these numbers?</h3>
           <p style="font-size:var(--text-base); color:var(--c-sub); margin-bottom:var(--sp-6);">Book a free 30-minute strategy session and RICO will interpret your numbers, recommend optimal suburbs, and map out your property investment strategy.</p>
           <a href="https://calendly.com/ricobuyersagent/30min" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book Free Strategy Session</a>
@@ -503,7 +503,7 @@
       // Chart
       const ctx=document.getElementById('mortgageChart');
       if(mortChart)mortChart.destroy();
-      mortChart=new Chart(ctx,{type:'doughnut',data:{labels:['Principal','Total Interest'],datasets:[{data:[P,totalInt],backgroundColor:['#2c5282','#f6ad55'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{family:'Inter',size:12}}}}}});
+      mortChart=new Chart(ctx,{type:'doughnut',data:{labels:['Principal','Total Interest'],datasets:[{data:[P,totalInt],backgroundColor:['#bda08a','#f6ad55'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{family:'Inter',size:12}}}}}});
     }
     calcMortgage();
 
@@ -624,7 +624,7 @@
       document.getElementById('bc-pct-purchase').textContent=`Total = ${pct(((total-price)/price)*100).replace('%','')  }% above purchase price in additional costs`;
       const ctx3=document.getElementById('buyingCostsChart');
       if(bcChart)bcChart.destroy();
-      bcChart=new Chart(ctx3,{type:'doughnut',data:{labels:['Purchase Price','Stamp Duty','Legal','Inspection','Loan Fees','Mortgage Reg','Moving'],datasets:[{data:[price,totalSD,legal,insp,loanFees,mortgage_reg,moving],backgroundColor:['#2c5282','#e53e3e','#39847a','#f6ad55','#4a7fc1','#bda08a','#718096'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{family:'Inter',size:11},boxWidth:12}}}}});
+      bcChart=new Chart(ctx3,{type:'doughnut',data:{labels:['Purchase Price','Stamp Duty','Legal','Inspection','Loan Fees','Mortgage Reg','Moving'],datasets:[{data:[price,totalSD,legal,insp,loanFees,mortgage_reg,moving],backgroundColor:['#bda08a','#e53e3e','#39847a','#f6ad55','#d4bfad','#bda08a','#718096'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{family:'Inter',size:11},boxWidth:12}}}}});
     }
     calcBC();
   </script>

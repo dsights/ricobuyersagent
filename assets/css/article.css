@@ -20,7 +20,7 @@
 .article-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(26,54,93,.96) 0%, rgba(26,54,93,.6) 60%, rgba(26,54,93,.25) 100%);
+  background: linear-gradient(to top, rgba(166,139,119,0.96) 0%, rgba(166,139,119,0.6) 60%, rgba(166,139,119,0.25) 100%);
 }
 .article-hero__content {
   position: relative;
@@ -357,7 +357,7 @@
 .info-box.warning svg { color: #c05621; }
 .info-box.success { background: rgba(72,187,120,.08); border: 1px solid rgba(72,187,120,.3); }
 .info-box.success svg { color: #38a169; }
-.info-box.info { background: var(--c-primary-xlight); border: 1px solid rgba(44,82,130,.2); }
+.info-box.info { background: var(--c-primary-xlight); border: 1px solid rgba(189,160,138,.2); }
 .info-box.info svg { color: var(--c-primary); }
 
 /* ── SIDEBAR ── */

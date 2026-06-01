@@ -177,13 +177,13 @@
     const idx=[100,110,130,155,175,220,215,250,270,285,330,340,360,410,380,470];
     new Chart(document.getElementById('thirtyYearChart'),{
       type:'line',
-      data:{labels:years,datasets:[{label:'Capital City Median Price Index (1995=100)',data:idx,borderColor:'#2c5282',backgroundColor:'rgba(44,82,130,.08)',fill:true,tension:.4,borderWidth:3,pointBackgroundColor:'#2c5282',pointRadius:4}]},
+      data:{labels:years,datasets:[{label:'Capital City Median Price Index (1995=100)',data:idx,borderColor:'#bda08a',backgroundColor:'rgba(189,160,138,.08)',fill:true,tension:.4,borderWidth:3,pointBackgroundColor:'#bda08a',pointRadius:4}]},
       options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{family:'Inter',size:12}}},annotation:{annotations:{}}},scales:{y:{ticks:{callback:v=>v+'',font:{family:'Inter',size:11}},title:{display:true,text:'Index (1995 = 100)',font:{family:'Inter',size:12}}}}}
     });
     // City growth chart
     new Chart(document.getElementById('cityGrowthChart'),{
       type:'bar',
-      data:{labels:['Perth','Brisbane','Adelaide','Sydney','Melbourne','Hobart'],datasets:[{label:'5-Year Growth %',data:[112,78,69,32,18,28],backgroundColor:['#39847a','#2c5282','#4a7fc1','#bda08a','#718096','#39847a'],borderRadius:8}]},
+      data:{labels:['Perth','Brisbane','Adelaide','Sydney','Melbourne','Hobart'],datasets:[{label:'5-Year Growth %',data:[112,78,69,32,18,28],backgroundColor:['#39847a','#bda08a','#d4bfad','#bda08a','#718096','#39847a'],borderRadius:8}]},
       options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v+'%',font:{family:'Inter',size:11}},title:{display:true,text:'5-Year Capital Growth (%)',font:{family:'Inter',size:12}}}}}
     });
   </script>
