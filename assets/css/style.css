@@ -34,7 +34,7 @@
   /* Gradients */
   --grad-primary: linear-gradient(135deg, #a68b77 0%, #bda08a 50%, #d4bfad 100%);
   --grad-teal:    linear-gradient(135deg, #2c6b62 0%, #39847a 100%);
-  --grad-hero:    linear-gradient(135deg, rgba(166,139,119,0.92) 0%, rgba(189,160,138,0.75) 100%);
+  --grad-hero:    linear-gradient(135deg, rgba(166,139,119,0.65) 0%, rgba(189,160,138,0.35) 100%);
   --grad-gold:    linear-gradient(135deg, #bda08a 0%, #d4bfad 100%);
   --grad-light:   linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
 

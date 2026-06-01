@@ -20,7 +20,7 @@
 .article-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(166,139,119,0.96) 0%, rgba(166,139,119,0.6) 60%, rgba(166,139,119,0.25) 100%);
+  background: linear-gradient(to top, rgba(166,139,119,0.75) 0%, rgba(166,139,119,0.4) 60%, rgba(166,139,119,0.15) 100%);
 }
 .article-hero__content {
   position: relative;
